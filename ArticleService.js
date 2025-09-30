@@ -50,7 +50,7 @@ export function createArticle(articleData) {
   return axios
     .post(baseURL + '/articles', articleData)
     .then((response) => {
-      return response.data;
+      return console.log(`성공!!:`, response.data);
     })
     .catch((error) => {
       console.error('실패!!!', error.message);
@@ -68,7 +68,7 @@ export function patchArticle(id, articleData) {
   return axios
     .patch(`${baseURL}/articles/${id}`, articleData)
     .then((response) => {
-      return response.data;
+      return console.log(`성공!!:`, response.data);
     })
     .catch((error) => {
       console.error(`실패!!!`, error.message);
@@ -87,7 +87,7 @@ export function deleteArticle(id) {
   return axios
     .delete(`${baseURL}/articles/${id}`)
     .then((response) => {
-      return response.data;
+      return console.log(`성공!!:`, response.data);
     })
     .catch((error) => {
       console.log(`실패 코드: ${error.response.status}`);

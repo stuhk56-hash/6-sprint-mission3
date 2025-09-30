@@ -37,8 +37,15 @@ createArticle(articleData).then((createdArticle) => {
 // getArticle(id);
 
 //--------------리스트 가져오기--------------
-getArticleList(1, 10, '고양이');
+// getArticleList(1, 10, '고양이');
 
 // ---------------patch-----------------4718
+const articleData = {
+  title: '하얀 고양이',
+  content: '하얀 고양이',
+  image:
+    'https://images.freeimages.com/images/large-previews/bf0/sleepy-cat-x-1504754.jpg?h=350',
+};
+patchArticle(4718, articleData);
 
 //-----------------delete--------------4718
