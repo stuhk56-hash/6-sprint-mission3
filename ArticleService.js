@@ -20,7 +20,7 @@ export function getArticleList(page, pageSize, keyword) {
       }
     })
     .finally(() => {
-      console.log('=====[gerArticleList] 테스트 완료=====');
+      console.log('=====[gerArticleList] 리스트 불러오기 끝====');
     });
 }
 
@@ -41,9 +41,10 @@ export function getArticle(id) {
       }
     })
     .finally(() => {
-      console.log('=====[gerArticle] 테스트 완료=====');
+      console.log('=====[gerArticle] 게시글 불러오기 끝=====');
     });
 }
+
 //------------createArticle--------------------------------------
 
 export function createArticle(articleData) {
@@ -63,6 +64,7 @@ export function createArticle(articleData) {
       console.log(`===생성 실험 끝===`);
     });
 }
+
 //--------------------patchArticle------------------
 export function patchArticle(id, articleData) {
   return axios

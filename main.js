@@ -20,32 +20,30 @@ const powerNeo = new ElectronicProduct(
 
 console.log('=====테스트 시작=====');
 
-/* ----------------고양이 포스트하기----------------------
+/*
+//----올릴 포스트/패치 내용 쓰는 곳----
 const articleData = {
-  title: '고양이',
-  content: '고양이',
+  title: '검은 고양이',
+  content: '검은 고양이',
   image:
-    'https://images.mypetlife.co.kr/content/uploads/2022/05/27120923/52041878798_acf34e8861_b.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdlFJ7CNFqVBVVHTq3Vjfio8TTIFoktx9-sQ&s',
 };
-createArticle(articleData).then((createdArticle) => {
-  // 성공 시 게시글 아이디 얻어오기
-  console.log(`성공! ID: ${createdArticle.id}`);
-});
-*/
-
-//-------------- 포스트 한것 구하기--------------4715, 4718
-// getArticle(id);
 
 //--------------리스트 가져오기--------------
-// getArticleList(1, 10, '고양이');
+getArticleList(1, 10, '고양이');
 
-// ---------------patch-----------------4718
-const articleData = {
-  title: '하얀 고양이',
-  content: '하얀 고양이',
-  image:
-    'https://images.freeimages.com/images/large-previews/bf0/sleepy-cat-x-1504754.jpg?h=350',
-};
-patchArticle(4718, articleData);
+//----------------고양이 포스트하기----------------------
+createArticle(articleData);
 
-//-----------------delete--------------4718
+//-------------- 포스트 한것 구하기--------------4715, 4718 ,34,35,36
+getArticle(4715);
+
+// ---------------patch 하기-----------------4718
+
+patchArticle(4715, articleData);
+
+//-----------------delete--------------4734, 35, 36
+deleteArticle(4734);
+deleteArticle(4735);
+deleteArticle(4736);
+*/
