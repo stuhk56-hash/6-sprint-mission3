@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // https://panda-market-api-crud.vercel.app/docs
-const URL = `https://panda-market-api-crud.vercel.app`;
+const URL = `https://panda-market-api-crud.vercel.app/docs`;
 
 export function getArticleList(page, pageSize, keyword) {
   return axios
@@ -22,6 +22,9 @@ export function getArticleList(page, pageSize, keyword) {
         console.log(`${error.response.status}`);
         console.log(error.response.data);
       }
+    })
+    .finally(() => {
+      console.log('=====[gerArticleList] 테스트 완료=====');
     });
 }
 
@@ -38,8 +41,12 @@ export function getArticle() {
         console.log(`${error.response.status}`);
         console.log(error.response.data);
       }
+    })
+    .finally(() => {
+      console.log('=====[gerArticle] 테스트 완료=====');
     });
 }
+
 // export function createArticle() {
 // return axios
 // };
