@@ -14,10 +14,10 @@ async function getProductList(page, pageSize, keyword) {
       },
     });
     const productData = response.data;
-    console.log('성공!:', productData); //내용 출력
+    console.log('성공!: ', productData); //내용 출력
     return productData; //다른곳에서 쓸 수 있게 리턴해준다. ?
   } catch (error) {
-    console.error('실패!!! :', error.message);
+    console.error('실패!!!: ', error.message);
     if (error.response) {
       console.log('에러 코드: ', error.response.status);
       console.log('에러 내용: ', error.response.data);
@@ -33,10 +33,10 @@ async function getProduct(ID) {
   try {
     const response = await axios.get(baseURL + '/products/' + ID);
     const productData = response.data;
-    console.log('성공!!!:', productData);
+    console.log('성공!: ', productData);
     return productData;
   } catch (error) {
-    console.error('실패!!!:', error.message);
+    console.error('실패!!!: ', error.message);
     if (error.response) {
       console.log('에러 코드: ', error.response.status);
       console.log('에러 내용: ', error.response.data);
@@ -51,9 +51,9 @@ async function createProduct(myProduct) {
   try {
     const response = await axios.post(baseURL + '/products', myProduct);
     const createdProductData = response.data;
-    console.log('생성 성공!!!:', createdProductData);
+    console.log('생성 성공!: ', createdProductData);
   } catch (error) {
-    console.error('실패!!!:', error.message);
+    console.error('실패!!!: ', error.message);
     if (error.response) {
       console.log('에러 코드: ', error.response.status);
       console.log('에러 내용: ', error.response.data);
@@ -68,7 +68,7 @@ async function patchProduct(ID, myproduct) {
   try {
     const response = await axios.patch(`${baseURL}/products/${ID}`, myproduct);
     const productData = response.data;
-    console.log('성공!!!:', productData);
+    console.log('성공!: ', productData);
   } catch (error) {
     console.error('실패!!!: ', error.message);
     if (error.response) {
@@ -85,9 +85,9 @@ async function deleteProduct(ID) {
   try {
     const response = await axios.delete(baseURL + '/products/' + ID);
     const responseData = response.data;
-    console.log('성공!!!:', responseData);
+    console.log('성공!: ', responseData);
   } catch (error) {
-    console.error('실패!!!:', error.message);
+    console.error('실패!!!: ', error.message);
     if (error.response) {
       console.log('에러 코드: ', error.response.status);
       console.log('에러 내용: ', error.response.data);
