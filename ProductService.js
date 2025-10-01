@@ -18,8 +18,10 @@ async function getProductList(page, pageSize, keyword) {
     return productData; //다른곳에서 쓸 수 있게 리턴해준다. ?
   } catch (error) {
     console.error('실패!!! :', error.message);
-    console.log('에러 코드:', error.response.status);
-    console.log('에러 내용:', error.response.data);
+    if (error.response) {
+      console.log('에러 코드:', error.response.status);
+      console.log('에러 내용:', error.response.data);
+    }
   } finally {
     console.log(`======겟 프로덕트 테스트 완료======`);
   }
@@ -35,8 +37,10 @@ async function getProduct(ID) {
     return productData;
   } catch (error) {
     console.error('실패!!!:', error.message);
-    console.log('에러 코드:', error.response.status);
-    console.log('에러 내용:', error.response.data);
+    if (error.response) {
+      console.log('에러 코드:', error.response.status);
+      console.log('에러 내용:', error.response.data);
+    }
   } finally {
     console.log('======== 겟 프로닥 실험 끝 ========');
   }
@@ -51,10 +55,27 @@ async function createProduct(myNewProduct) {
     return new Product(createdProductData);
   } catch (error) {
     console.error('실패!!!:', error.message);
-    console.log('에러 코드:', error.response.status);
-    console.log('에러 내용:', error.response.data);
+    if (error.response) {
+      console.log('에러 코드:', error.response.status);
+      console.log('에러 내용:', error.response.data);
+    }
   } finally {
     console.log('======== 생성 실험 끝 ========');
+  }
+}
+
+// ========= 프로덕트 삭제 =========
+async function deleteProduct(ID) {
+  try {
+    const response = await axios.delete(baseURL + '/product/' + ID);
+    const responseData = response.data;
+    console.log('성공!!!:', responseData);
+  } catch (error) {
+    console.error('실패!!!:', error.message);
+    if (error.response) {
+      console.log('에러 코드:', error.response.status);
+      console.log('에러 내용:', error.response.data);
+    }
   }
 }
 
@@ -63,5 +84,5 @@ export {
   getProduct,
   createProduct,
   // patchProduct,
-  // deleteProduct,
+  deleteProduct,
 };
