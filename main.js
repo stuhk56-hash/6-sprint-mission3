@@ -44,5 +44,5 @@ getArticleList(1, 10, '고양이');
 // deleteArticle(4735);
 // deleteArticle(4736);
 
-// console.log('=====테스트 시작=====');
+console.log('=====테스트 시작=====');
 // getProductList(1, 10, '');

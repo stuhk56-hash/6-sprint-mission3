@@ -15,8 +15,8 @@ export function getArticleList(page, pageSize, keyword) {
     .catch((error) => {
       console.error('실패! :', error.message);
       if (error.response) {
-        console.log(`실패 코드: ${error.response.status}`);
-        console.log(error.response.data);
+        console.log(`에러 코드: ${error.response.status}`);
+        console.log(`에러 내용: ${error.response.data}`);
       }
     })
     .finally(() => {
@@ -36,8 +36,8 @@ export function getArticle(id) {
     .catch((error) => {
       console.error('실패! :', error.message);
       if (error.response) {
-        console.log(`실패 코드: ${error.response.status}`);
-        console.log(error.response.data);
+        console.log(`에러 코드: ${error.response.status}`);
+        console.log(`에러 내용: ${error.response.data}`);
       }
     })
     .finally(() => {
@@ -56,8 +56,8 @@ export function createArticle(articleData) {
     .catch((error) => {
       console.error('실패!!!', error.message);
       if (error.response) {
-        console.log(`실패 코드: ${error.response.status}`);
-        console.log(`${error.response.data}`);
+        console.log(`에러 코드: ${error.response.status}`);
+        console.log(`에러 내용: ${error.response.data}`);
       }
     })
     .finally(() => {
@@ -75,8 +75,8 @@ export function patchArticle(id, articleData) {
     .catch((error) => {
       console.error(`실패!!!`, error.message);
       if (error.response) {
-        console.log(`실패 코드: ${error.response.status}`);
-        console.log(`${error.response.data}`);
+        console.log(`에러 코드: ${error.response.status}`);
+        console.log(`에러 내용: ${error.response.data}`);
       }
     })
     .finally(() => {
@@ -92,8 +92,8 @@ export function deleteArticle(id) {
       return console.log(`성공!!:`, response.data);
     })
     .catch((error) => {
-      console.log(`실패 코드: ${error.response.status}`);
-      console.log(`${error.response.data}`);
+      console.log(`에러 코드: ${error.response.status}`);
+      console.log(`에러 내용: ${error.response.data}`);
     })
     .finally(() => {
       console.log(`=== 게시물 삭제 실험 끝===`);
