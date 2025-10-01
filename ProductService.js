@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Product from './Product.js';
 
 const baseURL = `https://panda-market-api-crud.vercel.app`; // /products/   ${baseURL}/products
 
@@ -47,7 +48,7 @@ async function createProduct(myNewProduct) {
     const response = await axios.post(baseURL + '/products', myNewProduct);
     const createdProductData = response.data;
     console.log('생성 성공!!!:', createdProductData);
-    return createdProductData;
+    return new Product(createdProductData);
   } catch (error) {
     console.error('실패!!!:', error.message);
     console.log('에러 코드:', error.response.status);
