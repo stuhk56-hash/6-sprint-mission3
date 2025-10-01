@@ -30,7 +30,7 @@ const powerNeo = new ElectronicProduct(
 // };
 
 //--------------리스트 가져오기--------------
-getArticleList(1, 10, '고양이');
+// getArticleList(1, 10, '고양이');
 
 //----------------고양이 포스트하기----------------------
 // createArticle(articleData);
