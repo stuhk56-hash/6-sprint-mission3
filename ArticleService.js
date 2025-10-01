@@ -4,7 +4,7 @@ import axios from 'axios';
 const baseURL = `https://panda-market-api-crud.vercel.app`;
 
 //-------------getArticleList(1,1,'')------------------------
-export function getArticleList(page, pageSize, keyword) {
+function getArticleList(page, pageSize, keyword) {
   const q = `?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
   const finURL = `${baseURL}/articles/${q}`;
   return axios
@@ -26,7 +26,7 @@ export function getArticleList(page, pageSize, keyword) {
 
 //------------getArticle(id)--------------------------------------
 
-export function getArticle(id) {
+function getArticle(id) {
   return axios
     .get(`${baseURL}/articles/${id}`)
     .then((response) => {
@@ -47,7 +47,7 @@ export function getArticle(id) {
 
 //------------createArticle--------------------------------------
 
-export function createArticle(articleData) {
+function createArticle(articleData) {
   return axios
     .post(baseURL + '/articles', articleData)
     .then((response) => {
@@ -66,7 +66,7 @@ export function createArticle(articleData) {
 }
 
 //--------------------patchArticle------------------
-export function patchArticle(id, articleData) {
+function patchArticle(id, articleData) {
   return axios
     .patch(`${baseURL}/articles/${id}`, articleData)
     .then((response) => {
@@ -85,7 +85,7 @@ export function patchArticle(id, articleData) {
 }
 
 //-----------------deleteArticle----------------------
-export function deleteArticle(id) {
+function deleteArticle(id) {
   return axios
     .delete(`${baseURL}/articles/${id}`)
     .then((response) => {
@@ -99,3 +99,11 @@ export function deleteArticle(id) {
       console.log(`=== 게시물 삭제 실험 끝===`);
     });
 }
+
+export {
+  getArticleList,
+  getArticle,
+  createArticle,
+  patchArticle,
+  deleteArticle,
+};

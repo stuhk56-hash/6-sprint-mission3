@@ -2,15 +2,6 @@ import axios from 'axios';
 
 const baseURL = `https://panda-market-api-crud.vercel.app`; // /products/   ${baseURL}/products
 
-/*
-getProductList()
-getProduct()
-createProduct()
-patchProduct()
-deleteProduct()
-
-
-*/
 //==========겟 프로덕트 리스트=======
 export async function getProductList(page, pageSize, keyword) {
   try {
@@ -22,7 +13,7 @@ export async function getProductList(page, pageSize, keyword) {
       },
     });
     const productData = response.data;
-    console.log('성공!:', productData);
+    console.log('성공!:', productData); //내용 출력
     return productData; //다른곳에서 쓸 수 있게 리턴해준다. ?
   } catch (error) {
     console.error('실패!!! :', error.message);
@@ -32,3 +23,9 @@ export async function getProductList(page, pageSize, keyword) {
     console.log(`======겟 프로덕트 테스트 완료======`);
   }
 }
+
+//==========겟 프로덕트==========
+
+/*
+export {getProductList, getProduct, createProduct, patchProduct, deleteProduct}
+*/
