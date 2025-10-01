@@ -8,7 +8,13 @@ import {
   patchArticle,
   deleteArticle,
 } from './ArticleService.js';
-import { getProduct, getProductList, createProduct } from './ProductService.js';
+import {
+  getProduct,
+  getProductList,
+  createProduct,
+  deleteProduct,
+  patchProduct,
+} from './ProductService.js';
 
 //------------------------------------------------------------
 
@@ -47,23 +53,28 @@ const powerNeo = new ElectronicProduct(
 // deleteArticle(4736);
 
 console.log('=====테스트 시작=====');
+
+// ==== 패치,포스트 할 게시글 =====
+const myProduct = new Product(
+  '오케스트리온',
+  '원하는 노래를 재생할 수 있는 자동연주 상자.',
+  300000,
+  ['가구', '전자제품'],
+  ['https://upload2.inven.co.kr/upload/2016/12/30/data/i13299477557.png']
+);
+
 //============ getProductList (page, pageSize, keyword) ==========
-// getProductList(1, 10, '');
+getProductList(1, 10, '');
 
 //======= 겟 프로덕트(ID) =======
-// getProduct(1234);
+getProduct(1234);
 
 //======= 프로덕트 생성 ========
+createProduct(myProduct);
 
-//예시 가구
-// const myNewProduct = new Product(
-//   '마하의 관',
-//   '보이드의 방주 안에 실려있던 관을 본뜬 침대.',
-//   900000,
-//   ['가구'],
-//   ['https://upload2.inven.co.kr/upload/2016/09/29/data/i13735191954.png']
-// );
-// const createdProductInstace = await createProduct(myNewProduct);
-// console.log(createdProductInstace);
+//============== 프로덕트 패치 ==============
+patchProduct(2407, myProduct);
 
-//======= delete product =======
+//======= delete product ======= 2405
+deleteProduct();
+deleteProduct();

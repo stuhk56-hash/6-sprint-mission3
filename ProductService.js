@@ -47,12 +47,11 @@ async function getProduct(ID) {
 }
 
 //================ 프로덕트 생성 ================
-async function createProduct(myNewProduct) {
+async function createProduct(myProduct) {
   try {
-    const response = await axios.post(baseURL + '/products', myNewProduct);
+    const response = await axios.post(baseURL + '/products', myProduct);
     const createdProductData = response.data;
     console.log('생성 성공!!!:', createdProductData);
-    return new Product(createdProductData);
   } catch (error) {
     console.error('실패!!!:', error.message);
     if (error.response) {
@@ -64,10 +63,27 @@ async function createProduct(myNewProduct) {
   }
 }
 
+//========= 프로덕트 패치하기 ==========
+async function patchProduct(ID, myproduct) {
+  try {
+    const response = await axios.patch(`${baseURL}/products/${ID}`, myproduct);
+    const productData = response.data;
+    console.log('성공!!!:', productData);
+  } catch (error) {
+    console.error('실패!!!: ', error.message);
+    if (error.response) {
+      console.log('에러 코드: ', error.response.status);
+      console.log('에러 내용: ', error.response.data);
+    }
+  } finally {
+    console.log('======= 프로덕트 패치 실험 끝 =======');
+  }
+}
+
 // ========= 프로덕트 삭제 =========
 async function deleteProduct(ID) {
   try {
-    const response = await axios.delete(baseURL + '/product/' + ID);
+    const response = await axios.delete(baseURL + '/products/' + ID);
     const responseData = response.data;
     console.log('성공!!!:', responseData);
   } catch (error) {
@@ -76,6 +92,8 @@ async function deleteProduct(ID) {
       console.log('에러 코드:', error.response.status);
       console.log('에러 내용:', error.response.data);
     }
+  } finally {
+    console.log('======= 게시글 삭제 실험 끝 ========');
   }
 }
 
@@ -83,6 +101,6 @@ export {
   getProductList,
   getProduct,
   createProduct,
-  // patchProduct,
+  patchProduct,
   deleteProduct,
 };
