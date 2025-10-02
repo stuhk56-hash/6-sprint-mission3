@@ -51,33 +51,35 @@ console.log('=====테스트 시작=====');
 // getProduct(1234);
 
 //======= 프로덕트 생성 ========
-// const myProduct = new Product(
-//   '낡은 이어폰',
-//   '언제 산 건지 모를 이어폰이다...',
-//   '5000',
-//   ['전자제품'],
-//   []
-// );
-// createProduct(myProduct);
+const myProduct = new Product(
+  '낡은 이어폰',
+  '언제 산 건지 모를 이어폰이다...',
+  '5000',
+  ['전자제품'],
+  []
+);
+createProduct(myProduct);
 
 //============== 프로덕트 패치 ==============
-// patchProduct(2407, myProduct);
+patchProduct(2407, myProduct);
 
 //======= delete product ======= 2405
-// deleteProduct();
-// deleteProduct();
+deleteProduct();
+deleteProduct();
 
 //======== instance 어쩌구 저쩌구 ==================
-const products = [];
+const products = []; //최종적으로 모든게 담겨야 할 상자
 
 async function productsItems() {
   try {
-    let temp = [];
-    temp = await getProductList(1, 10, '');
+    let temp = []; //임시 리스트를 만들어준다.
+    temp = await getProductList(1, 10, ''); //임시 리스트 안에 넣을 리스트를, await으로 받아올 때까지 기다린다
     temp.forEach((item) => {
-      let instance;
+      //임시리스트 안에 있는 값들을 forEach로 하나씩 돌면서
+      let instance; //새로운 인스턴스안에
       if (item.tags && item.tags.includes('전자제품')) {
-        instance = new ElectronicProduct(
+        //아이템 태그에 전자제품이 있다면 전자제품으로 분류, 전자제품 클래스를 가져와서 인스턴스에 집어넣는다
+        instance = new ElectronicProduct( //오류가 나던 item을 item.name … 이런식으로 변경
           item.name,
           item.description,
           item.price,
@@ -87,6 +89,7 @@ async function productsItems() {
           item.manufacturer
         );
       } else {
+        //그게 아니라면 일반 제품으로 집어 넣는다
         instance = new Product(
           item.name,
           item.description,
@@ -95,9 +98,9 @@ async function productsItems() {
           item.image,
           item.favoriteCount
         );
-      }
+      } //instance안에 있는 제품들을 product로 집어 넣는다
       products.push(instance);
-    });
+    }); //성공 시 products 안에 있는 제품들이 뭔지 알 수 있도록 한번 출력해줬다
     console.log('성공!: ', products);
   } catch (error) {
     console.error('실패!!!: ', error.message);
@@ -106,4 +109,4 @@ async function productsItems() {
   }
 }
 
-productsItems();
+productsItems(); //함수 실행
