@@ -5,7 +5,7 @@ export default class Product {
     this.price = price;
     this.tags = tags || []; //undefined 값 방지 || [] / 0
     this.images = images || [];
-    this.favoriteCount = favoriteCount || 0;
+    this.favoriteCount = favoriteCount;
   }
 
   favorite() {
