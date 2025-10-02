@@ -1,12 +1,12 @@
 import axios from 'axios';
 import Product from './Product.js';
 
-const baseURL = `https://panda-market-api-crud.vercel.app`; // /products/   ${baseURL}/products
+const BASE_URL = `https://panda-market-api-crud.vercel.app`; // /products/   ${BASE_URL}/products
 
 //=============== 겟 프로덕트 리스트 ============
 async function getProductList(page, pageSize, keyword) {
   try {
-    const response = await axios.get(baseURL + '/products', {
+    const response = await axios.get(BASE_URL + '/products', {
       params: {
         page,
         pageSize,
@@ -32,7 +32,7 @@ async function getProductList(page, pageSize, keyword) {
 
 async function getProduct(ID) {
   try {
-    const response = await axios.get(baseURL + '/products/' + ID);
+    const response = await axios.get(BASE_URL + '/products/' + ID);
     const productData = response.data;
     console.log('성공!: ', productData);
     return productData;
@@ -50,7 +50,7 @@ async function getProduct(ID) {
 //================ 프로덕트 생성 ================
 async function createProduct(myProduct) {
   try {
-    const response = await axios.post(baseURL + '/products', myProduct);
+    const response = await axios.post(BASE_URL + '/products', myProduct);
     const createdProductData = response.data;
     console.log('생성 성공!: ', createdProductData);
   } catch (error) {
@@ -67,7 +67,7 @@ async function createProduct(myProduct) {
 //========= 프로덕트 패치하기 ==========
 async function patchProduct(ID, myProduct) {
   try {
-    const response = await axios.patch(`${baseURL}/products/${ID}`, myProduct);
+    const response = await axios.patch(`${BASE_URL}/products/${ID}`, myProduct);
     const productData = response.data;
     console.log('성공!: ', productData);
   } catch (error) {
@@ -84,7 +84,7 @@ async function patchProduct(ID, myProduct) {
 // ========= 프로덕트 삭제 =========
 async function deleteProduct(ID) {
   try {
-    const response = await axios.delete(baseURL + '/products/' + ID);
+    const response = await axios.delete(BASE_URL + '/products/' + ID);
     const responseData = response.data;
     console.log('성공!: ', responseData);
   } catch (error) {

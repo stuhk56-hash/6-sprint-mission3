@@ -3,15 +3,15 @@ import axios from 'axios';
 
 // https://panda-market-api-crud.vercel.app/docs <<판다 마켓 주소
 
-const baseURL = `https://panda-market-api-crud.vercel.app`;
+const BASE_URL = `https://panda-market-api-crud.vercel.app`;
 //매번 이걸 쳐주기 귀찮으니, 베이스로 사용할 URL 선언.
 
 //-------------getArticleList(1,1,'')------------------------
 function getArticleList(page, pageSize, keyword) {
   const q = `?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
-  const finURL = `${baseURL}/articles/${q}`;
+  const finURL = `${BASE_URL}/articles/${q}`;
   //쿼리 파라미터? 형식으로 하라고 미션에 적혀있어서 이렇게 q 를 선언 후,
-  //위에서 만들었던 baseURL과 /article/ 방금만든 q 를 합쳐 full 주소(finURL)를 완성시킨다.
+  //위에서 만들었던 BASE_URL과 /article/ 방금만든 q 를 합쳐 full 주소(finURL)를 완성시킨다.
 
   return axios
     .get(finURL) //완성된 주소에서 GET 해오기
@@ -36,7 +36,7 @@ function getArticle(ID) {
   //함수 호출때 getArticle(‘여기’) 적은 아이디가, 여기로 들어갈 예정
   return (
     axios
-      .get(`${baseURL}/articles/${ID}`)
+      .get(`${BASE_URL}/articles/${ID}`)
       //여긴 쿼리 부분에 특정 게시물이 올라온 주소의 아이디를 바로 넣을 것이기 때문에
       //finURL말고 이렇게 사용.(맞는지는 잘 모르나 일단 잘 동작했습니다.)
       .then((response) => {
@@ -60,7 +60,7 @@ function getArticle(ID) {
 
 function createArticle(articleData) {
   return axios
-    .post(baseURL + '/articles', articleData)
+    .post(BASE_URL + '/articles', articleData)
     .then((response) => {
       return console.log(`성공!: `, response.data);
     })
@@ -79,7 +79,7 @@ function createArticle(articleData) {
 //--------------------patchArticle------------------
 function patchArticle(ID, articleData) {
   return axios
-    .patch(`${baseURL}/articles/${ID}`, articleData)
+    .patch(`${BASE_URL}/articles/${ID}`, articleData)
     .then((response) => {
       return console.log(`성공!: `, response.data);
     })
@@ -98,7 +98,7 @@ function patchArticle(ID, articleData) {
 //-----------------deleteArticle----------------------
 function deleteArticle(ID) {
   return axios
-    .delete(`${baseURL}/articles/${ID}`)
+    .delete(`${BASE_URL}/articles/${ID}`)
     .then((response) => {
       return console.log(`성공!: `, response.data);
     })
