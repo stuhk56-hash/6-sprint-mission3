@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "axios": "^1.12.2"
+  },
+  "name": "20250926",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyoumi3263-hue/test-my-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kyoumi3263-hue/test-my-project/issues"
+  },
+  "homepage": "https://github.com/kyoumi3263-hue/test-my-project#readme"
+}
