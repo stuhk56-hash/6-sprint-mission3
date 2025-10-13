@@ -7,14 +7,14 @@ import {
   createArticle,
   patchArticle,
   deleteArticle,
-} from './ArticleService.js';
+} from './servise/ArticleService.js';
 import {
   getProduct,
   getProductList,
   createProduct,
   deleteProduct,
   patchProduct,
-} from './ProductService.js';
+} from './servise/ProductService.js';
 
 //------------------------------------------------------------
 console.log('=====테스트 시작=====');
