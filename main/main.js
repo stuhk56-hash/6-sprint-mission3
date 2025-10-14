@@ -1,20 +1,20 @@
-import Product from './Product.js';
-import ElectronicProduct from './ElectronicProduct.js';
-import Article from './Article.js';
+import Product from '../class/Product.js';
+import ElectronicProduct from '../class/ElectronicProduct.js';
+import Article from '../class/Article.js';
 import {
   getArticleList,
   getArticle,
   createArticle,
   patchArticle,
   deleteArticle,
-} from './ArticleService.js';
+} from '../service/ArticleService.js';
 import {
   getProduct,
   getProductList,
   createProduct,
   deleteProduct,
   patchProduct,
-} from './ProductService.js';
+} from '../service/ProductService.js';
 
 //------------------------------------------------------------
 console.log('=====테스트 시작=====');
