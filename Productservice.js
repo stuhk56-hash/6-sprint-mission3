@@ -15,18 +15,13 @@ import {ElectronicProducts} from "./ElectronicProduct.js";
 const instance = axios.create({
     baseURL: 'https://panda-market-api-crud.vercel.app',
     timeout: 5000
-    //timeout: xnnn = x초 내에 연결이 되지 않으면 error return
 });
 
 /* 🚨 getProductList() : GET 메소드를 사용해 주세요.
   -- page, pageSize, keyword 쿼리 파라미터를 이용해 주세요. */
-export async function getProductList({page, pageSize, keyword}){
+export async function getProductList({page, pageSize, keyword}) {
     // - try/catch 를 이용하여 오류 처리를 해주세요.
-    /* try and catch는 function 안에 들어가야 동작한다.
-      처음에 했던대로 try { export async function ....(){} } catch{}
-      시도하면 오류남 251001 22:27
-    */
-    try{
+    try {
         const res = await instance.get(`/products`, {
             params: {page, pageSize, keyword}
         });
@@ -41,7 +36,7 @@ export async function getProductList({page, pageSize, keyword}){
         const productList = res.data.list; //res.data;
 
         //2. map 메서드를 통해 각 상품(item)을 Product 클래스의 인스턴스로 변환한다.
-        const products = productList.map(item =>{
+        const products = productList.map(item => {
             //여기서 foreach 말고 map 쓰는 게 맞나?
             if (item.tags.includes("전자제품") || item.tags.includes("전자 제품")) {
                 return new ElectronicProducts(
@@ -53,9 +48,6 @@ export async function getProductList({page, pageSize, keyword}){
                     item.favortieCount,
                     item.manufacturer
                 );
-                //want: item의 속성(key value)이 key name과 일치하는 곳으로 들어감
-                //real: ⭐️item 전체가 ElectronicProducts의 첫번째 매개변수인 name에 들어감⭐️
-                //need: item의 각 속성과 이름이 같은 ElectronicProducts의 각 매개변수를 매칭시켜주는 것. 15:50 251002
             } else {
                 return new Product(
                     item.name,
@@ -69,75 +61,55 @@ export async function getProductList({page, pageSize, keyword}){
         });
         //3. 인스턴스들로 구성된 최종 배열 반환
         return products;
-    } catch(error){
+    } catch (error) {
         console.log("getProdL err.stat: ", error.response.status);
         return error.response.data;
-        /* console.log("getProdL error!", error.data);
-            throw error;
-            실제 에러 발생 시 원인을 빠르게 파악하기 위해 위 코드를 삭제하고 현재 코드로 수정하였음
-            이후 전체 함수 catch return 값 일괄 변경
-            1009 22:37
-            */
     };
-}
-/* Axios는 비동기 요청을 Promise로 처리하고, async/await를 사용하면 이를 더 간단하게 다룰 수 있다.
-조금 더 정확히 표현해야 해요.
-Axios 자체는 비동기적으로 동작해요. (axios.get()은 Promise를 반환함)
-async/await는 비동기 처리를 더 직관적이고 동기적인 코드 스타일로 작성할 수 있게 해주는 문법이에요.
-따라서 axios + async/await를 쓰면 비동기 요청을 깔끔하게 처리할 수 있지만,
-"async/await를 쓰면 비동기처리가 된다"는 설명은 살짝 오해의 소지가 있어요.
-
-📖 더 정확한 설명:
-Axios는 비동기 HTTP 요청을 Promise 기반으로 처리한다.
-async/await를 사용하면 Axios의 비동기 요청을 마치 동기 코드처럼 순차적으로 다룰 수 있다.
-*/
 
 // 🚨 getProduct() : GET 메소드를 사용해 주세요.
-export async function getProduct(productId){
-    try{
-        const response = await instance.get(`/products/${productId}`, )
-        return response.data;
-    } catch(error){
-        cconsole.log("getProd err.stat: ", error.response.status);
-        return error.response.data;
-    };
-}
+    export async function getProduct(productId) {
+        try {
+            const response = await instance.get(`/products/${productId}`,)
+            return response.data;
+        } catch (error) {
+            cconsole.log("getProd err.stat: ", error.response.status);
+            return error.response.data;
+        };
+    }
 
 // 🚨 createProduct() : POST 메소드를 사용해 주세요.
 // - request body에 {name, description, price, tags, images} 를 포함해 주세요.
-export async function createProduct({name, description, price, tags, images}){
-    // 메소드에 유연성을 주기 위해서, 매개변수를 post의 두 번째 인자로(두 번째 자리에) 직접 넣지 않고 새 변수에 할당한 후 해당 변수를 전달한다
-    // (구조분해할당 사용. 객체 구조 분해= parameter destructing)
-    // For more flexibility, declare new varialbe with the parameters of this method. 1009 21:46
-    const newProduct = {name, description, price, tags, images};
+    export async function createProduct({name, description, price, tags, images}) {
+        const newProduct = {name, description, price, tags, images};
 
-    try{
-        const res = await instance.post(`/products`, newProduct);
-        return res.data;
-    } catch(error) {
-        console.log("creatPd err.stat: ", error.response.status);
-        return error.response.data;
-    };
-}
+        try {
+            const res = await instance.post(`/products`, newProduct);
+            return res.data;
+        } catch (error) {
+            console.log("creatPd err.stat: ", error.response.status);
+            return error.response.data;
+        };
+    }
 
 // 🚨 patchProduct() : PATCH 메소드를 사용해 주세요.
-export async function patchProduct(productId, updates) {
-    try{
-        const res = await instance.patch(`/products/${productId}`, updates);
-        return res.data;
-    } catch(error) {
-        console.log("patPd err.stat: ", error.response.status);
-        return error.response.data;
+    export async function patchProduct(productId, updates) {
+        try {
+            const res = await instance.patch(`/products/${productId}`, updates);
+            return res.data;
+        } catch (error) {
+            console.log("patPd err.stat: ", error.response.status);
+            return error.response.data;
+        }
     }
-}
 
 // 🚨 deleteProduct() : DELETE 메소드를 사용해 주세요.
-export async function deleteProduct(productId){
-    try{
-        const res = await instance.delete(`/products/${productId}`);
-        return res.data;
-    } catch(error) {
-        console.log("deltPd err.stat: ", error.response.status);
-        return error.response.data;
+    export async function deleteProduct(productId) {
+        try {
+            const res = await instance.delete(`/products/${productId}`);
+            return res.data;
+        } catch (error) {
+            console.log("deltPd err.stat: ", error.response.status);
+            return error.response.data;
+        }
     }
 }
