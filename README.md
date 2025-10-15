@@ -92,7 +92,7 @@
 
 ## 스크린샷
 
-![image](![alt text](image.png))
+(![alt text](image.png))
 
 ## 멘토에게
 
