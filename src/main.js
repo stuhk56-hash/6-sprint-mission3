@@ -18,7 +18,7 @@ import { ElectronicProduct } from "./models/ElectronicProduct.js";
 
 //Product Instance Test
 async function productInstance() {
-  const list = await getProductList();
+  const list = await getProductList(1, 2);
   const products = list.map((item) => {
     if (item.tags.includes("전자제품")) {
       return new ElectronicProduct(
@@ -42,14 +42,14 @@ async function productInstance() {
     }
   });
   console.log(products);
-  console.log("Product Instance Test 완료");
+  console.log("Product Instance 완료");
+  console.log("");
 }
 
 //Product API CRUD Test
 async function testProduct() {
-  const getProList = await getProductList(1, 5);
+  const getProList = await getProductList(1, 2);
   console.log(getProList);
-  console.log("Product List GET 완료");
 
   let postData = {
     images: ["http://Dopophone.com"],
@@ -61,11 +61,9 @@ async function testProduct() {
 
   const postPro = await createProduct(postData);
   console.log(postPro);
-  console.log("Product POST 완료");
 
-  const getId = await getProduct(postPro.id);
-  console.log(getId);
-  console.log("Product Id GET 완료");
+  const getProId = await getProduct(postPro.id);
+  console.log(getProId);
 
   let patchData = {
     images: ["http://Dopophone.com"],
@@ -77,19 +75,16 @@ async function testProduct() {
 
   const patchPro = await patchProduct(postPro.id, patchData);
   console.log(patchPro);
-  console.log("Product PATCH 완료");
 
   const deletePro = await deleteProduct(postPro.id);
   console.log(deletePro);
-  console.log("Product DELETE 완료");
-  console.log("");
   console.log("Product CRUD Test 완료");
   console.log("");
 }
 
 //Atricle Instance Test
 async function articleInstance() {
-  const list = await getArticleList(1, 5);
+  const list = await getArticleList(1, 2);
   const Articles = list.map((item) => {
     return new Article(
       item.title,
@@ -100,4 +95,50 @@ async function articleInstance() {
     );
   });
   console.log(Articles);
+  console.log("Atricle Instance 완료");
+  console.log("");
 }
+
+//Article API CRUD Test
+async function testArticle() {
+  const getArtList = await getArticleList(1, 2);
+  console.log(getArtList);
+
+  let articleData = {
+    image: "http://Depophone.com",
+    content: "대포폰 이야기 입니다.",
+    title: "대포폰",
+  };
+
+  const postArt = await createArticle(articleData);
+  console.log(postArt);
+
+  const getIdArt = await getArticle(postArt.id);
+  console.log(getIdArt);
+
+  let patchData = {
+    image: "http://Mopophone.com",
+    content: "머포폰 이야기 입니다.",
+    title: "머포폰",
+  };
+
+  const patchArt = await patchArticle(postArt.id, patchData);
+  console.log(patchArt);
+
+  const deleteArt = await deleteArticle(postArt.id);
+  console.log(deleteArt);
+  console.log("Atricle CRUD Test 완료");
+  console.log("");
+}
+
+// 전체 Test
+async function allTest() {
+  await productInstance();
+  await testProduct();
+  await articleInstance();
+  await testArticle();
+  console.log("");
+  console.log("전체 Test 완료");
+}
+
+allTest();
