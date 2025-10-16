@@ -1,7 +1,7 @@
 // electronicProduct.js
 // ElectronicProduct 클래스를 정의합니다.
 
-import { Product } from "./product.js";
+import { Product } from "./.product.js";
 
 export class ElectronicProduct extends Product {
   _manufacturer;
