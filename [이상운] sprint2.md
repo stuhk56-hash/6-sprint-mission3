@@ -4,6 +4,10 @@
 
 ## 요구사항
 
+### API 정의서:
+
+- [https://panda-market-api-crud.vercel.app/docs](https://panda-market-api-crud.vercel.app/docs)
+
 ### 클래스 구현
 
 `class` 키워드를 이용해 Product, ElectronicProduct, Article 클래스 생성
@@ -26,9 +30,8 @@
 
 ### Article 요청 구현
 
-- API 정의서: [https://panda-market-api-crud.vercel.app/docs](https://panda-market-api-crud.vercel.app/docs)
 - [x] Article API를 이용하여 아래 함수 구현
-  - [x Article 가져오기(GET)
+  - [x] Article 가져오기(GET)
     - `getArticle()`
     - `getArticleList()`
       - 쿼리 파라미터: `page`, `pageSize`, `keyword`
@@ -48,7 +51,6 @@
 
 ### Product 요청 구현
 
-- API 정의서: [https://panda-market-api-crud.vercel.app/docs](https://panda-market-api-crud.vercel.app/docs)
 - [x] Product API를 이용하여 아래 함수 구현
   - [x] Product 가져오기(GET)
     - `getProduct()`
@@ -60,10 +62,10 @@
   - [x] Product 등록하기(POST)
     - `createProduct()`
     - request body: `name`, `description`, `price`, `tags`, `images`
-    - [x] Product 수정하기(PATCH)
-      - `patchProduct()`
-    - [x] Product 삭제하기(DELETE)
-      - `deleteProduct()`
+  - [x] Product 수정하기(PATCH)
+    - `patchProduct()`
+  - [x] Product 삭제하기(DELETE)
+    - `deleteProduct()`
 - [x] `async/await` 을 이용해 비동기 처리
 - [x] `try/catch` 를 이용해 오류 처리
 
