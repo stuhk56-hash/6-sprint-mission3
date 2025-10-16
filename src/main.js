@@ -16,6 +16,7 @@ import { Article } from "./models/Article.js";
 import { Product } from "./models/Product.js";
 import { ElectronicProduct } from "./models/ElectronicProduct.js";
 
+//Product Instance Test
 async function productInstance() {
   const list = await getProductList();
   const products = list.map((item) => {
@@ -41,6 +42,49 @@ async function productInstance() {
     }
   });
   console.log(products);
+  console.log("Product Instance Test 완료");
 }
 
-productInstance();
+//Product API CRUD Test
+async function testProduct() {
+  const getProList = await getProductList(1, 5);
+  console.log(getProList);
+  console.log("Product List GET 완료");
+
+  let postData = {
+    images: ["http://Dopophone.com"],
+    tags: ["전자제품"],
+    price: 5000,
+    description: "위험한 물건",
+    name: "대포폰",
+  };
+
+  const postPro = await createProduct(postData);
+  console.log(postPro);
+  console.log("Product POST 완료");
+
+  const getId = await getProduct(postPro.id);
+  console.log(getId);
+  console.log("Product Id GET 완료");
+
+  let patchData = {
+    images: ["http://Dopophone.com"],
+    tags: ["불법제품"],
+    price: 500000,
+    description: "불법 물건",
+    name: "머포폰",
+  };
+
+  const patchPro = await patchProduct(postPro.id, patchData);
+  console.log(patchPro);
+  console.log("Product PATCH 완료");
+
+  const deletePro = await deleteProduct(postPro.id);
+  console.log(deletePro);
+  console.log("Product DELETE 완료");
+  console.log("");
+  console.log("Product CRUD Test 완료");
+  console.log("");
+}
+
+testProduct();
