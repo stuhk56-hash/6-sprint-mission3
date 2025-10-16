@@ -39,6 +39,8 @@ npm install
   - `constants.js`: API 기본 URL
   - `dummy.js`: 생성 및 업데이트 테스트를 위한 더미 데이터
 
+---
+
 ## 주요 기능
 
 - 게시글 관리: Article에 대한 CRUD 기능
@@ -65,6 +67,8 @@ npm install
     ├── constants.js            # 상수 (API 기본 URL 등)
     └── dummy.js                # 테스트용 더미 데이터
 ```
+
+---
 
 ## 개발 컨벤션
 
@@ -107,6 +111,8 @@ npm install
 - 헬퍼: `makeArticle(data)` - Article 인스턴스 생성, 로컬 데이터(전체)와 서버 데이터(최소)를 분리
 - 에러 처리: HTTP 상태 코드 및 네트워크 오류 로깅
 
+---
+
 **ProductService.mjs**
 
 - 비동기 작업에 `async/await` 패턴 사용
@@ -134,6 +140,8 @@ npm install
    - Product 데이터에서 클라이언트 전용 필드를 제거하기 위한 수동 `delete` 작업
 
 4. **캡슐화**: 모든 클래스 프로퍼티는 private 필드(`#property`)를 사용
+
+---
 
 ## 실행
 
