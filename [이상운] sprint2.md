@@ -89,8 +89,8 @@
 
 ## 스크린샷
 
-- 없음
+![전체 폴더 구조 및 README](https://github.com/user-attachments/assets/4bd9e617-f276-4fa7-a331-7c7b8be3f078)
 
 ## 멘토에게
 
-- 없음
+- 이해도가 조금 떨어지는 편이예요. 코멘트 작성시 쉽게 적어주시면 큰 도움이 될 것 같습니다.
