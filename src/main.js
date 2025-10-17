@@ -42,6 +42,11 @@ async function productInstance() {
     }
   });
   console.log(products);
+  products[0].favorite();
+  products[0].favorite();
+  products[0].favorite();
+  console.log(products[0].name);
+  console.log(products[0].favoriteCount);
   console.log("Product Instance 완료");
   console.log("");
 }
@@ -95,6 +100,11 @@ async function articleInstance() {
     );
   });
   console.log(Articles);
+  Articles[0].like();
+  Articles[0].like();
+  Articles[0].like();
+  console.log(Articles[0].title);
+  console.log(Articles[0].likeCount);
   console.log("Atricle Instance 완료");
   console.log("");
 }
@@ -141,4 +151,4 @@ async function allTest() {
   console.log("전체 Test 완료");
 }
 
-allTest();
+// allTest();
