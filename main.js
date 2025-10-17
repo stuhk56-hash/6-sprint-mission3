@@ -1,23 +1,8 @@
-/*
-getProductList()를 통해서 받아온 상품 리스트를 각각 인스턴스로 만들어 products 배열에 저장해 주세요.
-  ㄴ해시태그에 "전자제품"이 포함되어 있는 상품들은 Product 클래스 대신 ElectronicProduct 클래스를 사용해 인스턴스를 생성해 주세요.
-  ㄴ나머지 상품들은 모두 Product 클래스를 사용해 인스턴스를 생성해 주세요.
-
-구현한 함수들을 아래와 같이 파일을 분리해 주세요.
-  ㄴexport를 활용해 주세요.
-  ㄴProductService.js 파일 Product API 관련 함수들을 작성해 주세요.
-  ㄴArticleService.js 파일에 Article API 관련 함수들을 작성해 주세요.
-
-이외의 코드들은 모두 main.js 파일에 작성해 주세요.
-  ㄴimport를 활용해 주세요.
-  ㄴ각 함수를 실행하는 코드를 작성하고, 제대로 동작하는지 확인해 주세요.
-*/
-
-import { Product } from "./Product.js";
+import { Product } from "./class/Product.js";
 import { ElectronicProduct } from "./ElectronicProduct.js";
-import { Article } from "./Article.js";
-import * as ArticleService from "./ArticleService.js";
-import * as ProductService from "./ProductService.js";
+import { Article } from "./class/Article.js";
+import * as ArticleService from "./services/ArticleService.js";
+import * as ProductService from "./services/ProductService.js";
 
 async function main() {
   try {
