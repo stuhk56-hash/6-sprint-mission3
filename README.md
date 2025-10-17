@@ -34,4 +34,4 @@
 - ./class/ArticleClass.js, ProductClass.js, ElectronicProductClass.js
 - ./service/ArticleService.js, ProductService.js
 - ./lib/myFuns.js (사용자 정의 함수)
-- main.js, test_ArticleService.js, test_ProductService.js
+- ./main.js, test_ArticleService.js, test_ProductService.js
