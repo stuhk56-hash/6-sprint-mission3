@@ -1,0 +1,15 @@
+{
+  "name": "sprint-mission-2-final-project",
+  "version": "1.0.0",
+  "description": "API request function implementation project",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Jin Lee",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2"
+  }
+}
