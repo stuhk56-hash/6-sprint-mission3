@@ -34,7 +34,7 @@ console.log(await getProduct(2661));
 console.log(
   await createProduct(
     '상품 이름',
-    '이것은 테스트4 yj',
+    '이것은 테스트5 yj',
     1000,
     '전자제품',
     'http://image.com'
