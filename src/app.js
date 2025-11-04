@@ -53,7 +53,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // 정적 파일을 서빙하는 미들웨어입니다 (업로드된 이미지 파일들)
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 // 각 기능별 API 라우트를 직접 설정합니다 (인라인 로직 사용)
 
