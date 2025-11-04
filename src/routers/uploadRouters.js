@@ -1,11 +1,11 @@
 // Express 라우터를 가져옵니다
 import express from 'express';
 // 업로드 컨트롤러를 가져옵니다
-import UploadController from '../controllers/UploadController.js';
+import UploadController from '../controllers/uploadControllers.js';
 // 이미지 업로드 관련 미들웨어를 가져옵니다
-import { imageUpload, handleUploadError } from '../errors/upload.js';
+import { imageUpload, handleUploadError } from '../lib/upload.js';
 // 에러 핸들러를 가져옵니다
-import { asyncHandler } from '../errors/errorHandler.js';
+import { asyncHandler } from '../lib/errors/errorHandler.js';
 
 // Express 라우터를 생성합니다
 const router = express.Router();
