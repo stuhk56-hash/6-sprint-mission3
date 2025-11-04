@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/app.js",
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "seed": "node scripts/prisma-seed.js"
+  },
+  "prisma": {
+    "seed": "node scripts/prisma-seed.js"
   },
   "repository": {
     "type": "module",
