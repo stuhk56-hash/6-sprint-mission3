@@ -2,6 +2,7 @@
   "name": "6-sprint-mission",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/app.js",
@@ -12,7 +13,6 @@
     "seed": "node scripts/prisma-seed.js"
   },
   "repository": {
-    "type": "module",
     "url": "git+https://github.com/wndms328-lgtm/6-sprint-mission.git"
   },
   "author": "",

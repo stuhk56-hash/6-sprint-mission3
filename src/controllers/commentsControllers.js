@@ -3,236 +3,157 @@ import { prisma } from '../prisma.js';
 const commentController = {
   // 상품 댓글 생성
   createProductComment: async (req, res) => {
-    try {
-      const { productId } = req.params;
-      const { content } = req.body;
+    const { productId } = req.params;
+    const { content } = req.body;
 
-      // 상품 존재 확인
-      const product = await prisma.product.findUnique({
-        where: { id: parseInt(productId) },
-      });
+    // 상품 존재 확인
+    await prisma.product.findUniqueOrThrow({
+      where: { id: productId },
+    });
 
-      if (!product) {
-        return res.status(404).json({
-          success: false,
-          message: '상품을 찾을 수 없습니다.',
-        });
-      }
+    const comment = await prisma.productComment.create({
+      data: {
+        content,
+        productId,
+      },
+    });
 
-      const comment = await prisma.comment.create({
-        data: {
-          content,
-          product_id: parseInt(productId),
-        },
-      });
-
-      res.status(201).json({
-        success: true,
-        message: '댓글이 성공적으로 등록되었습니다.',
-        data: comment,
-      });
-    } catch (error) {
-      console.error('상품 댓글 등록 오류:', error);
-      res.status(500).json({
-        success: false,
-        message: '댓글 등록 중 오류가 발생했습니다.',
-        error: error.message,
-      });
-    }
+    res.status(201).send(comment);
   },
 
   // 게시글 댓글 생성
   createArticleComment: async (req, res) => {
-    try {
-      const { articleId } = req.params;
-      const { content } = req.body;
+    const { articleId } = req.params;
+    const { content } = req.body;
 
-      // 게시글 존재 확인
-      const article = await prisma.article.findUnique({
-        where: { id: parseInt(articleId) },
-      });
+    // 게시글 존재 확인
+    await prisma.article.findUniqueOrThrow({
+      where: { id: articleId },
+    });
 
-      if (!article) {
-        return res.status(404).json({
-          success: false,
-          message: '게시글을 찾을 수 없습니다.',
-        });
-      }
+    const comment = await prisma.articleComment.create({
+      data: {
+        content,
+        articleId,
+      },
+    });
 
-      const comment = await prisma.comment.create({
-        data: {
-          content,
-          article_id: parseInt(articleId),
-        },
-      });
-
-      res.status(201).json({
-        success: true,
-        message: '댓글이 성공적으로 등록되었습니다.',
-        data: comment,
-      });
-    } catch (error) {
-      console.error('게시글 댓글 등록 오류:', error);
-      res.status(500).json({
-        success: false,
-        message: '댓글 등록 중 오류가 발생했습니다.',
-        error: error.message,
-      });
-    }
+    res.status(201).send(comment);
   },
 
   // 댓글 수정
   updateComment: async (req, res) => {
-    try {
-      const { id } = req.params;
-      const { content } = req.body;
+    const { id } = req.params;
+    const { content } = req.body;
 
-      const comment = await prisma.comment.update({
-        where: { id: parseInt(id) },
+    // 댓글이 상품 댓글인지 게시글 댓글인지 확인
+    let comment;
+    try {
+      comment = await prisma.productComment.update({
+        where: { id },
         data: { content },
       });
-
-      res.json({
-        success: true,
-        message: '댓글이 성공적으로 수정되었습니다.',
-        data: comment,
-      });
     } catch (error) {
-      console.error('댓글 수정 오류:', error);
-
       if (error.code === 'P2025') {
-        return res.status(404).json({
-          success: false,
-          message: '댓글을 찾을 수 없습니다.',
+        // 상품 댓글이 아니면 게시글 댓글로 시도
+        comment = await prisma.articleComment.update({
+          where: { id },
+          data: { content },
         });
+      } else {
+        throw error;
       }
-
-      res.status(500).json({
-        success: false,
-        message: '댓글 수정 중 오류가 발생했습니다.',
-        error: error.message,
-      });
     }
+    res.send(comment);
   },
 
   // 댓글 삭제
   deleteComment: async (req, res) => {
+    const { id } = req.params;
+
+    // 댓글이 상품 댓글인지 게시글 댓글인지 확인
+    let comment;
     try {
-      const { id } = req.params;
-
-      const comment = await prisma.comment.delete({
-        where: { id: parseInt(id) },
-      });
-
-      res.json({
-        success: true,
-        message: '댓글이 성공적으로 삭제되었습니다.',
-        data: comment,
+      comment = await prisma.productComment.delete({
+        where: { id },
       });
     } catch (error) {
-      console.error('댓글 삭제 오류:', error);
-
       if (error.code === 'P2025') {
-        return res.status(404).json({
-          success: false,
-          message: '댓글을 찾을 수 없습니다.',
+        // 상품 댓글이 아니면 게시글 댓글로 시도
+        comment = await prisma.articleComment.delete({
+          where: { id },
         });
+      } else {
+        throw error;
       }
-
-      res.status(500).json({
-        success: false,
-        message: '댓글 삭제 중 오류가 발생했습니다.',
-        error: error.message,
-      });
     }
+    res.send(comment);
   },
 
   // 상품 댓글 목록 조회 (cursor 방식 페이지네이션)
   getProductComments: async (req, res) => {
-    try {
-      const { productId } = req.params;
-      const { cursor, limit = 10 } = req.query;
+    const { productId } = req.params;
+    const { cursor, limit = 10 } = req.query;
+    const take = parseInt(limit);
 
-      // 상품 존재 확인
-      const product = await prisma.product.findUnique({
-        where: { id: parseInt(productId) },
-      });
+    // 상품 존재 확인
+    await prisma.product.findUniqueOrThrow({
+      where: { id: productId },
+    });
 
-      if (!product) {
-        return res.status(404).json({
-          success: false,
-          message: '상품을 찾을 수 없습니다.',
-        });
-      }
+    const where = { productId };
+    const comments = await prisma.productComment.findMany({
+      where,
+      orderBy: { createdAt: 'desc' },
+      ...(cursor && { cursor: { id: cursor }, skip: 1 }),
+      take,
+      select: {
+        id: true,
+        content: true,
+        createdAt: true,
+      },
+    });
 
-      const take = parseInt(limit);
-      const comments = await prisma.comment.findMany({
-        where: { product_id: parseInt(productId) },
-        orderBy: { id: 'desc' },
-        ...(cursor && { cursor: { id: parseInt(cursor) }, skip: 1 }),
-        take,
-      });
-
-      res.json({
-        success: true,
-        data: comments,
-        pagination: {
-          hasMore: comments.length === take,
-          nextCursor: comments.length > 0 ? comments[comments.length - 1].id : null,
-        },
-      });
-    } catch (error) {
-      console.error('상품 댓글 목록 조회 오류:', error);
-      res.status(500).json({
-        success: false,
-        message: '댓글 목록 조회 중 오류가 발생했습니다.',
-        error: error.message,
-      });
-    }
+    res.send({
+      data: comments,
+      pagination: {
+        hasMore: comments.length === take,
+        nextCursor: comments.length > 0 ? comments[comments.length - 1].id : null,
+      },
+    });
   },
 
   // 게시글 댓글 목록 조회 (cursor 방식 페이지네이션)
   getArticleComments: async (req, res) => {
-    try {
-      const { articleId } = req.params;
-      const { cursor, limit = 10 } = req.query;
+    const { articleId } = req.params;
+    const { cursor, limit = 10 } = req.query;
+    const take = parseInt(limit);
 
-      // 게시글 존재 확인
-      const article = await prisma.article.findUnique({
-        where: { id: parseInt(articleId) },
-      });
+    // 게시글 존재 확인
+    await prisma.article.findUniqueOrThrow({
+      where: { id: articleId },
+    });
 
-      if (!article) {
-        return res.status(404).json({
-          success: false,
-          message: '게시글을 찾을 수 없습니다.',
-        });
-      }
+    const where = { articleId };
+    const comments = await prisma.articleComment.findMany({
+      where,
+      orderBy: { createdAt: 'desc' },
+      ...(cursor && { cursor: { id: cursor }, skip: 1 }),
+      take,
+      select: {
+        id: true,
+        content: true,
+        createdAt: true,
+      },
+    });
 
-      const take = parseInt(limit);
-      const comments = await prisma.comment.findMany({
-        where: { article_id: parseInt(articleId) },
-        orderBy: { id: 'desc' },
-        ...(cursor && { cursor: { id: parseInt(cursor) }, skip: 1 }),
-        take,
-      });
-
-      res.json({
-        success: true,
-        data: comments,
-        pagination: {
-          hasMore: comments.length === take,
-          nextCursor: comments.length > 0 ? comments[comments.length - 1].id : null,
-        },
-      });
-    } catch (error) {
-      console.error('게시글 댓글 목록 조회 오류:', error);
-      res.status(500).json({
-        success: false,
-        message: '댓글 목록 조회 중 오류가 발생했습니다.',
-        error: error.message,
-      });
-    }
+    res.send({
+      data: comments,
+      pagination: {
+        hasMore: comments.length === take,
+        nextCursor: comments.length > 0 ? comments[comments.length - 1].id : null,
+      },
+    });
   },
 };
 
