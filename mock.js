@@ -1,7 +1,11 @@
 export const USERS = [
   {
     id: 'b8f11e76-0a9e-4b3f-bccf-8d9b4fbf331e',
+<<<<<<< HEAD
     email: 'honggd@example.com',
+=======
+    email: 'kdhong@example.com',
+>>>>>>> 0c0d25b ([정현준]sprint4)
     firstName: '길동',
     lastName: '홍',
     address: '서울특별시 강남구 무실로 123번길 45-6',
@@ -117,6 +121,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T10:00:00Z',
     updatedAt: '2023-07-14T10:00:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'd2ff3048-83bc-425a-8ad3-d6d9af1c7c6d',
     name: '나이키 테크조그거팬츠',
@@ -128,6 +136,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T10:30:00Z',
     updatedAt: '2023-07-14T10:30:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '7f70481b-784d-4b0e-bc3e-f05eefc17951',
     name: 'Apple AirPods 프로',
@@ -139,6 +151,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T11:00:00Z',
     updatedAt: '2023-07-14T11:00:00Z',
   },
+<<<<<<< HEAD
   {
     id: '4e0d9424-3a16-4a5e-9725-0e9d2f9722b3',
     name: '베르사체 화장품 세트',
@@ -150,6 +163,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T11:30:00Z',
     updatedAt: '2023-07-14T11:30:00Z',
   },
+=======
+ 
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '39c3fd4a-dbd5-4ab1-8e0b-58ea31b8a2d3',
     name: '아이언맨 골프 클럽 세트',
@@ -161,6 +177,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T12:00:00Z',
     updatedAt: '2023-07-14T12:00:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'c2d4a2e3-7c2a-4f80-bff7-8ebcbacccf2c',
     name: '삼성 갤럭시 S21 울트라 5G 스마트폰',
@@ -172,6 +192,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T14:00:00Z',
     updatedAt: '2023-07-14T14:00:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '43c62d5b-6e66-4d1c-9f47-14d1a1970fd1',
     name: 'LG 그램 14형 노트북',
@@ -183,6 +207,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T14:30:00Z',
     updatedAt: '2023-07-14T14:30:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '6e9d4e63-7246-4fc5-bf33-3e7f32fe9c02',
     name: '나이키 에어맥스 270 운동화',
@@ -194,6 +222,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T15:00:00Z',
     updatedAt: '2023-07-14T15:00:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '80e7b377-df80-4410-9a14-622ea3cc58e0',
     name: '애플 맥북 프로 13형 노트북',
@@ -205,6 +237,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T15:30:00Z',
     updatedAt: '2023-07-14T15:30:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'a4ff201c-48f7-4963-b317-2e9e4e3e43b7',
     name: '랑방 매트 틴트',
@@ -216,6 +252,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-14T16:00:00Z',
     updatedAt: '2023-07-14T16:00:00Z',
   },
+<<<<<<< HEAD
   {
     id: 'c6a5975a-42e7-4f7f-8b7c-72714d59f44a',
     name: '루이비통 클래식 지갑',
@@ -304,6 +341,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T11:00:00Z',
     updatedAt: '2023-07-15T11:00:00Z',
   },
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'd5d60337-ccf6-404f-b615-982f2b223ab3',
     name: '나이키 에어 포스 1 운동화',
@@ -315,6 +355,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T11:30:00Z',
     updatedAt: '2023-07-15T11:30:00Z',
   },
+<<<<<<< HEAD
   {
     id: '209b2a1c-c6e9-4461-a17a-c8a8f141f9f9',
     name: '삼성 컬러 레이저 프린터',
@@ -326,6 +367,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T12:00:00Z',
     updatedAt: '2023-07-15T12:00:00Z',
   },
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'b1782c1e-8ad2-45a7-90e6-50f61c4a8de9',
     name: '코멧 피크닉 매트',
@@ -337,6 +381,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T12:30:00Z',
     updatedAt: '2023-07-15T12:30:00Z',
   },
+<<<<<<< HEAD
   {
     id: 'b2593dbd-5ea3-4376-9378-6d6e7a17e232',
     name: '루미에어 드라이 바디 수건',
@@ -348,6 +393,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T13:00:00Z',
     updatedAt: '2023-07-15T13:00:00Z',
   },
+=======
+
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'c28a2eaf-4d87-4f9f-ae5b-cbcf73e24253',
     name: '쿠진앤에이 오믈렛 팬',
@@ -359,6 +407,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T13:30:00Z',
     updatedAt: '2023-07-15T13:30:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'e48d9e8b-6712-48ed-9ea2-2f7e150a2e48',
     name: '네스프레소 커피머신',
@@ -370,6 +422,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T14:00:00Z',
     updatedAt: '2023-07-15T14:00:00Z',
   },
+<<<<<<< HEAD
   {
     id: '64e7c9fc-49b6-4b20-9ce3-11a9487ed1e1',
     name: '스완스톤 운동 요가 매트',
@@ -392,6 +445,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T15:00:00Z',
     updatedAt: '2023-07-15T15:00:00Z',
   },
+=======
+
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '4be1e6fd-2271-4f15-96e3-577c4a057c8b',
     name: '올바로 10단 스텐레스 냄비세트',
@@ -403,6 +459,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T15:30:00Z',
     updatedAt: '2023-07-15T15:30:00Z',
   },
+<<<<<<< HEAD
   {
     id: 'a4468fc1-3cfc-4c46-9ff9-2469b5f9e88a',
     name: '아디다스 운동바지',
@@ -414,6 +471,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T16:00:00Z',
     updatedAt: '2023-07-15T16:00:00Z',
   },
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'be07b27a-93e9-4d1a-8a54-133c0f04541e',
     name: 'LG 울트라 HD 4K TV',
@@ -425,6 +485,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T16:30:00Z',
     updatedAt: '2023-07-15T16:30:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'de573676-2a27-4cfa-85a1-0e9dd3ed5315',
     name: '삼성 갤럭시 워치4',
@@ -436,6 +500,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T17:00:00Z',
     updatedAt: '2023-07-15T17:00:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '9c6ebf9b-f666-44da-b79f-5f62517f55fc',
     name: '나이스컷 고급 칼세트',
@@ -447,6 +515,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T17:30:00Z',
     updatedAt: '2023-07-15T17:30:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '17cc4f9c-1e71-4782-914a-c8a12dc6f94b',
     name: '아벤크롬비 스니커즈',
@@ -458,6 +530,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T18:00:00Z',
     updatedAt: '2023-07-15T18:00:00Z',
   },
+<<<<<<< HEAD
   {
     id: 'c1b31e2b-6d6a-4b24-b3ea-d0746f9cc6ea',
     name: '피오라 러브포이즌 향수',
@@ -469,6 +542,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T18:30:00Z',
     updatedAt: '2023-07-15T18:30:00Z',
   },
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '5ae4a823-0076-4ae0-af49-7f3eb0002c0a',
     name: '니스 퍼퓸 캔들',
@@ -480,6 +556,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T19:00:00Z',
     updatedAt: '2023-07-15T19:00:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '50ce94ef-cb04-4c2f-bad4-d36b18956b9a',
     name: '디젤 남성 슬림 핏 청바지',
@@ -491,6 +571,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T19:30:00Z',
     updatedAt: '2023-07-15T19:30:00Z',
   },
+<<<<<<< HEAD
   {
     id: 'd6c5e7d5-225f-4f6d-ba17-6f79d32726db',
     name: '슈퍼디올 여성 선글라스',
@@ -535,6 +616,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T21:30:00Z',
     updatedAt: '2023-07-15T21:30:00Z',
   },
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'a81dd4df-5bc4-44b5-89a0-769a7b6d3cc0',
     name: '닌텐도 스위치 라이트',
@@ -546,6 +630,7 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T22:00:00Z',
     updatedAt: '2023-07-15T22:00:00Z',
   },
+<<<<<<< HEAD
   {
     id: '6e890e6d-df7b-4c50-8d3e-59a32c48ae51',
     name: '루미에어 프리미엄 베개',
@@ -557,6 +642,9 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T22:30:00Z',
     updatedAt: '2023-07-15T22:30:00Z',
   },
+=======
+ 
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '7a14ccf9-8b08-4e9a-8f0f-624dcf7d6d74',
     name: '메종키츠네 남성 반팔 티셔츠',
@@ -568,6 +656,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-15T23:00:00Z',
     updatedAt: '2023-07-15T23:00:00Z',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'f6a63b92-870e-4b54-8f80-7ae5e0b5be78',
     name: '삼성 갤럭시 버즈 프로',
@@ -579,7 +671,10 @@ export const PRODUCTS = [
     createdAt: '2023-07-16T01:00:00Z',
     updatedAt: '2023-07-16T01:00:00Z',
   },
+<<<<<<< HEAD
   
+=======
+>>>>>>> 0c0d25b ([정현준]sprint4)
 ];
 
 export const ORDERS = [
@@ -728,6 +823,7 @@ export const ORDER_ITEMS = [
     orderId: 'ae7597de-6601-4a9e-8047-9dd9f6e57e94',
     productId: '6e9d4e63-7246-4fc5-bf33-3e7f32fe9c02',
   },
+<<<<<<< HEAD
   {
     id: 'f5c377d3-9fe5-437b-999b-402d6e77a719',
     unitPrice: 1800000,
@@ -746,6 +842,9 @@ export const ORDER_ITEMS = [
     orderId: 'e03c2d89-3623-4e4c-98f6-facbd1266023',
     productId: 'a4ff201c-48f7-4963-b317-2e9e4e3e43b7',
   },
+=======
+ 
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '8c714670-2772-4aae-bc75-ee11f272e8db',
     unitPrice: 750000,
@@ -755,6 +854,7 @@ export const ORDER_ITEMS = [
     orderId: 'b5f8e405-8b95-4cb2-8b3b-ee1573da4fc2',
     productId: 'c6a5975a-42e7-4f7f-8b7c-72714d59f44a',
   },
+<<<<<<< HEAD
   {
     id: 'e5dcdb0c-7837-4a3d-97a3-8fc3ae4f19d4',
     unitPrice: 1799000,
@@ -764,6 +864,9 @@ export const ORDER_ITEMS = [
     orderId: 'b5f8e405-8b95-4cb2-8b3b-ee1573da4fc2',
     productId: 'a33d441f-57a9-4618-8f46-07e7418ef3c9',
   },
+=======
+
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '2e3fc058-d77e-4743-a5ce-81cb770f367d',
     unitPrice: 27000,
@@ -782,6 +885,7 @@ export const ORDER_ITEMS = [
     orderId: 'f5c8e4be-c69f-4e74-b48a-1671cbeff9a2',
     productId: 'e700c4be-6e0c-40fd-bb47-2ab2b2e9270d',
   },
+<<<<<<< HEAD
   {
     id: 'ef69be07-6a91-4c47-a638-027e33bda9c6',
     unitPrice: 1999000,
@@ -791,6 +895,9 @@ export const ORDER_ITEMS = [
     orderId: '329fcafe-4e1a-475a-9526-50c2678126db',
     productId: 'be13a617-8f0e-4806-82f7-149a6e12f1a7',
   },
+=======
+
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'b7f117e7-1283-4964-8358-fc6a438bfc7f',
     unitPrice: 59000,
@@ -854,6 +961,7 @@ export const ORDER_ITEMS = [
     orderId: 'dedd2a7f-56c4-45b7-a37d-efdc1d2f518d',
     productId: 'c28a2eaf-4d87-4f9f-ae5b-cbcf73e24253',
   },
+<<<<<<< HEAD
   {
     id: '3835b76a-77ef-4fd1-91bc-ee67065130b7',
     unitPrice: 1890000,
@@ -863,6 +971,9 @@ export const ORDER_ITEMS = [
     orderId: 'f5c8e4be-c69f-4e74-b48a-1671cbeff9a2',
     productId: 'be07b27a-93e9-4d1a-8a54-133c0f04541e',
   },
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'd27c1890-ba7e-4cb3-91fb-977b0b8ff77b',
     unitPrice: 399000,
@@ -872,6 +983,7 @@ export const ORDER_ITEMS = [
     orderId: 'dedd2a7f-56c4-45b7-a37d-efdc1d2f518d',
     productId: 'de573676-2a27-4cfa-85a1-0e9dd3ed5315',
   },
+<<<<<<< HEAD
   {
     id: 'e41bcab5-b408-4428-9a5a-b6f70f6a86a9',
     unitPrice: 79000,
@@ -881,6 +993,9 @@ export const ORDER_ITEMS = [
     orderId: 'a03b7801-d6d9-456d-ba3e-0e73750bc6b2',
     productId: '9c6ebf9b-f666-44da-b79f-5f62517f55fc',
   },
+=======
+ 
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '06d69334-8003-415f-8ad9-bd78bbf25512',
     unitPrice: 59000,
@@ -890,6 +1005,7 @@ export const ORDER_ITEMS = [
     orderId: 'b5f8e405-8b95-4cb2-8b3b-ee1573da4fc2',
     productId: '1cc006a0-82a3-4e70-8d92-974d1ea9c3af',
   },
+<<<<<<< HEAD
   {
     id: '6b344ab9-3a26-4daa-858f-2ed464a76904',
     unitPrice: 9000,
@@ -899,6 +1015,9 @@ export const ORDER_ITEMS = [
     orderId: 'ae7597de-6601-4a9e-8047-9dd9f6e57e94',
     productId: '85fc2182-8b7f-47f1-8f3d-911e0a3c0582',
   },
+=======
+
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: '9a918a82-8e1e-442f-96a5-05205199547f',
     unitPrice: 79000,
@@ -908,6 +1027,10 @@ export const ORDER_ITEMS = [
     orderId: 'dedd2a7f-56c4-45b7-a37d-efdc1d2f518d',
     productId: 'd9e3f6ae-04e5-4a7b-8c7c-2d582af08489',
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0c0d25b ([정현준]sprint4)
   {
     id: 'e593d45c-c244-4e53-92a6-33450a6d8f18',
     unitPrice: 189000,
@@ -917,6 +1040,7 @@ export const ORDER_ITEMS = [
     orderId: '7c5dd97a-b86b-4b7f-9da7-d6d9258f8d66',
     productId: '10f12b65-20f5-43d9-860e-faf4890e2a9e',
   },
+<<<<<<< HEAD
   {
     id: '64637bcf-531e-4569-8d5d-80801363821e',
     unitPrice: 20000,
@@ -927,3 +1051,6 @@ export const ORDER_ITEMS = [
     productId: '6922d7f9-72d6-46fe-8b0e-890700aa8f13',
   },
 ];
+=======
+];
+>>>>>>> 0c0d25b ([정현준]sprint4)
