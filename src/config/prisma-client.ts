@@ -1,14 +1,12 @@
-import { PrismaClient } from '@prisma/client';
-
+// Prisma -Singleton: PrismaClient DB 연결 중복 예방
 /**
- * PrismaClient 인스턴스를 생성하고 로그 설정을 적용합니다.
- * 개발 환경에서는 쿼리 로그를 포함하여 상세 로그를 출력합니다.
- */
-const prisma = new PrismaClient({
-  log:
-    process.env.NODE_ENV === 'development'
-      ? ['query', 'info', 'warn', 'error']
-      : ['error'], // 프로덕션 환경에서는 에러만 로깅
-});
+ * @info
+ * PrismaClient는 데이터베이스와 연결을 맺는 핵심 객체이다.
+ * 하지만 인스턴스를 매번 새로 만들면 커넥션이 중복 생성되어 메모리 누수, 연결 폭주, 서버 다운 같은 문제가 실제로 발생한다.
+ * 그래서 PrismaClient는 "프로젝트 전체에서 단 한번만 생성"하고 모든 모듈이 공통으로 재사용하는 싱글톤 구조가 필수다.
+ */ 
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient();
 
 export default prisma;
