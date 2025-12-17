@@ -2,7 +2,12 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
+<<<<<<< HEAD
   // Sample Products
+=======
+  
+  // Products
+>>>>>>> 0c0d25b ([정현준]sprint4)
   const product1 = await prisma.product.create({
     data: {
       name: 'Vintage Camera',
@@ -12,7 +17,11 @@ async function main() {
       imageUrl: '/uploads/vintage-camera.jpg',
     },
   });
+<<<<<<< HEAD
 
+=======
+  // Second Product
+>>>>>>> 0c0d25b ([정현준]sprint4)
   const product2 = await prisma.product.create({
     data: {
       name: 'Mountain Bike',
@@ -23,7 +32,11 @@ async function main() {
     },
   });
 
+<<<<<<< HEAD
   // Sample Articles
+=======
+  // Articles
+>>>>>>> 0c0d25b ([정현준]sprint4)
   const article1 = await prisma.article.create({
     data: {
       title: 'How to Take Great Photos',
