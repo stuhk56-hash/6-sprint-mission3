@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    
+
     /* === 🧩 타입 관련 옵션 === */
     "strict": true,
     "skipLibCheck": true,
@@ -30,7 +30,7 @@
 
     /* ===  📜 엄격한 타입 검사 옵션 === */
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true
+    "exactOptionalPropertyTypes": false
   },
   "include": ["src/**/*.ts"],
   "exclude": ["prisma", "node_modules", "dist"]

@@ -1,0 +1,186 @@
+/* =========================================
+   1. 기본 레이아웃 및 알림 아이콘 영역
+   ========================================= */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f6f8;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 알림 아이콘 래퍼 (배지 위치 기준점) */
+#notification-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 24px; /* 아이콘 크기 */
+  user-select: none;
+  width: 30px;
+  text-align: center;
+}
+
+/* 알림 아이콘 호버 효과 */
+#notification-icon:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+/* =========================================
+   2. 알림 배지 (빨간 동그라미)
+   ========================================= */
+#notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4b4b; /* 경고/알림 색상 */
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%; /* 원형 만들기 */
+  min-width: 12px;
+  text-align: center;
+  border: 2px solid #fff; /* 아이콘과 겹칠 때 구분선 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   3. 알림 목록 팝업 (Dropdown)
+   ========================================= */
+#notification-list {
+  display: none; /* 기본 숨김 (JS로 제어) */
+  position: absolute;
+  top: 60px; /* 네비게이션 바 높이에 맞춰 조정 */
+  right: 20px;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto; /* 내용 넘치면 스크롤 */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000; /* 다른 요소 위에 표시 */
+  border: 1px solid #eee;
+}
+
+/* 스크롤바 스타일링 (크롬, 사파리 등) */
+#notification-list::-webkit-scrollbar {
+  width: 6px;
+}
+#notification-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+/* =========================================
+   4. 알림 리스트 아이템 (개별 알림)
+   ========================================= */
+#notification-list li {
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#notification-list li:last-child {
+  border-bottom: none;
+}
+
+/* 안 읽은 알림 스타일 (강조) */
+#notification-list li.unread {
+  background-color: #e3f2fd; /* 연한 파란색 배경 */
+}
+#notification-list li.unread .noti-content p {
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+/* 읽은 알림 스타일 (흐림) */
+#notification-list li.read {
+  background-color: #fff;
+}
+#notification-list li.read .noti-content p {
+  color: #666;
+}
+
+/* 호버 효과 */
+#notification-list li:hover {
+  background-color: #f9f9f9;
+}
+#notification-list li.unread:hover {
+  background-color: #d1e9fc;
+}
+
+/* 알림 텍스트 */
+.noti-content p {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 알림 시간 */
+.noti-content small {
+  display: block;
+  color: #999;
+  font-size: 11px;
+}
+
+/* =========================================
+   5. 실시간 토스트 메시지 (Toast)
+   ========================================= */
+#toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast-message {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation:
+    slideInFade 0.5s forwards,
+    fadeOut 0.5s forwards 2.5s;
+  /* 0.5초 등장 -> 2.5초 대기(JS에서 3초 뒤 삭제하므로) -> 0.5초 사라짐 */
+  min-width: 200px;
+  max-width: 300px;
+}
+
+/* 토스트 등장 및 퇴장 애니메이션 */
+@keyframes slideInFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
