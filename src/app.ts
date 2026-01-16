@@ -5,7 +5,7 @@ import { setupWebSocket } from "./websocket.js";
 import cors from "cors";
 import path from "path";
 import cookieParser from "cookie-parser";
-import { PORT, PUBLIC_PATH, STATIC_PATH } from "./lib/constants.js";
+import { PUBLIC_PATH, STATIC_PATH } from "./lib/constants.js";
 import articlesRouter from "./routers/article-route.js";
 import productsRouter from "./routers/product-route.js";
 import commentsRouter from "./routers/comment-route.js";
@@ -35,6 +35,6 @@ app.use(globalErrorHandler);
 
 setupWebSocket(server, app);
 
-server.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+server.listen(3000, () => {
+  console.log("Server started on port 3000");
 });
