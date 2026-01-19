@@ -10,7 +10,7 @@
   },
   "main": "dist/main.js",
   "scripts": {
-    "dev": "tsx watch src/main.ts",
+    "dev": "tsx watch src/app.ts",
     "start": "node dist/main.js",
     "build": "tsc",
     "prisma:generate": "prisma generate",
