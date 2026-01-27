@@ -152,3 +152,15 @@ model ArticleLike {
   // 복합유니크
   @@unique([userId, articleId])
 }
+
+  // 알림 설정
+model Notification {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  type      NotificationType
+  payload   Json
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

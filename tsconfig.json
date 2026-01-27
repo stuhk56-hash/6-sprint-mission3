@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* === 📂 파일 구조 === */
-    "rootDir": "./src",
+    "rootDir": "./jest-framework/src",
     "outDir": "./dist",
 
     /* === ⚙️ 실행 환경 설정 === */
@@ -16,8 +16,8 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./src/types", "./node_modules/@types"],
-    "types": ["node"],
+    "typeRoots": ["./jest-framework/src/types", "./node_modules/@types"],
+    "types": ["node", "jest"],
 
     /* === 🏗️ 빌드 성능 & 개발 편의 === */
     "incremental": true,
@@ -32,6 +32,6 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": false
   },
-  "include": ["src/**/*.ts"],
+  "include": ["jest-framework/src/**/*.ts"],
   "exclude": ["prisma", "node_modules", "dist"]
 }
