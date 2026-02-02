@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../../app.js";
 
 describe("Product API Integration Tests", () => {
-  let userToken;
+  let userToken: string;
 
   beforeAll(async () => {
     // 로그인하여 토큰 미리 확보

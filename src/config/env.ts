@@ -16,13 +16,15 @@ import path from 'path';
 
 
 // ===== 아래에 코드를 작성하세요. =======
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+if (!global.envLoaded) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
 
-const envPath = process.env.NODE_ENV === 'test' ? '.env.test' : '.env';
+  const envPath = process.env.NODE_ENV === "test" ? ".env.test" : ".env";
 
-dotenv.config({
-  // 왜 옵션을 이렇게 설정할까요?
-  path: path.resolve(process.cwd(), envPath),
-});
-// process.cwd() 쓰는 이유? 어디에서 실행하든 동일한 .env를 로드하기 위해서
+  dotenv.config({
+    path: path.resolve(process.cwd(), envPath),
+  });
+
+  global.envLoaded = true;
+}
