@@ -24,7 +24,11 @@ Jest와 Supertest를 사용해 유닛 테스트, 통합 테스트 작성하기
 
 ## 스크린샷
 
-![image](이미지url)
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
 
 ## 멘토에게
 
