@@ -27,7 +27,10 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": false,
     "isolatedModules": true,
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "@prisma/client": ["./node_modules/@prisma/client"]
+    }
   },
   "include": [
     "src/**/*.ts",
