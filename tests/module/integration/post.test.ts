@@ -1,7 +1,7 @@
 import request from "supertest";
-import app from "../../src/app"; // Express 앱 인스턴스
-import { Post } from "../../services/postService";
-import { User } from "@prisma/client";
+import request from "supertest";
+import app from "../../../src/app"; // Express 앱 인스턴스
+import type { User } from "@prisma/client";
 
 describe("Post API 통합 테스트", () => {
   let accessToken: string;

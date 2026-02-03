@@ -1,6 +1,7 @@
 // src/services/productService.js
 
-const { prisma } = require('../../prisma/client');
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 // 상품 등록
 type CreateProductInput = {

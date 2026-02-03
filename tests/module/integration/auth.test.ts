@@ -1,6 +1,6 @@
-const request = require("supertest");
-const app = require("../../app"); // Express app 인스턴스를 가져옵니다.
-const prisma = require("../../prisma"); // Prisma Client (DB 초기화용)
+import request from "supertest";
+import app from "../../../src/app"; // Express app 인스턴스를 가져옵니다.
+import prisma from "../../../src/lib/prisma-client"; // Prisma Client (DB 초기화용)
 
 describe("Auth API Integration Tests", () => {
   // 테스트 전후 DB 정리 (필요 시)

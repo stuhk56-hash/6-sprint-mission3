@@ -1,9 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  rootDir: './jest-framework',
+  rootDir: '.',
+  moduleDirectories: ['node_modules', 'src'],
+  extensionsToTreatAsEsm: ['.ts'],
   testMatch: [
-    '**/__tests__/**/*.test.ts',
+    '<rootDir>/tests/**/*.test.ts',
   ],
   collectCoverage: true,
   collectCoverageFrom: [
@@ -16,10 +18,13 @@ module.exports = {
     '!src/types/*.ts',
     '!src/validators/*.ts',
   ],
-  coverageDirectory: '../coverage',
+  coverageDirectory: './coverage',
   coverageReporters: ['text', 'lcov'],
+  transform: {
+    '^.+\\.ts$': ['ts-jest', { useESM: true }],
+  },
   moduleNameMapper: {
     '\\.(css|less)$': 'identity-obj-proxy',
-    '^(.*)\\.js$': '$1',
+    '^(\\.{1,2}/.*)\\.js$': '$1',
   },
 };

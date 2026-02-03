@@ -145,7 +145,7 @@ export async function updateProductWithFavorites(id: number, data: Partial<Produ
   return mappedProduct;
 }
 
-export async function deleteProduct(id: number) {.
+export async function deleteProduct(id: number) {
   return prisma.product.delete({
     where: { id },
   });

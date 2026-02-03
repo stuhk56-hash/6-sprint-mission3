@@ -1,9 +1,8 @@
-// 예: ProductService가 ProductRepository를 의존성으로 가진다고 가정
-const ProductService = require("../../src/services/product.service");
-const ProductRepository = require("../../src/repositories/product.repository");
+import ProductService from "../../../src/services/product-service";
+import ProductRepository from "../../../src/repositories/productsRepository";
 
 // Repository 모킹 (Mocking)
-jest.mock("../../src/repositories/product.repository");
+jest.mock("../../../src/repositories/productsRepository");
 
 describe("ProductService Unit Tests", () => {
   let productService;
