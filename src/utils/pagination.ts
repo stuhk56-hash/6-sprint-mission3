@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from "../lib/prisma-client.js";
 
 /**
  * Fetch paginated results from a specified model.
@@ -11,20 +9,25 @@ const prisma = new PrismaClient();
  * @param {object} [filters={}] - Optional filters to apply to the query.
  * @returns {Promise<object>} - An object containing paginated results and metadata.
  */
-export async function fetchPaginatedResults(model, page, pageSize, filters = {}) {
+export async function fetchPaginatedResults(
+  model: string,
+  page: number,
+  pageSize: number,
+  filters: any = {}
+) {
   const skip = (page - 1) * pageSize;
   const take = pageSize;
 
   const [totalCount, results] = await Promise.all([
-    prisma[model].count({ where: filters }),
-    prisma[model].findMany({
+    (prisma as any)[model].count({ where: filters }),
+    (prisma as any)[model].findMany({
       where: filters,
       skip,
       take,
     }),
   ]);
 
-  const totalPages = Math.ceil(totalCount   / pageSize);
+  const totalPages = Math.ceil(totalCount / pageSize);
 
   return {
     results,
@@ -35,6 +38,4 @@ export async function fetchPaginatedResults(model, page, pageSize, filters = {})
       pageSize,
     },
   };
-}   
-
-
+}

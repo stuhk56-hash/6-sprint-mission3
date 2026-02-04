@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Socket.IO client test</h1>
+    <form id="form">
+      <input type="text" id="token" placeholder="JWT Access Token" />
+      <button id="connect">Connect</button>
+    </form>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+      const form = document.getElementById("form");
+      const tokenInput = document.getElementById("token");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        try {
+          const response = await fetch("/config");
+          const responseText = await response.text();
+          console.log("Server response:", responseText);
+          const config = JSON.parse(responseText);
+          const serverUrl = config.serverUrl;
+
+          const accessToken = tokenInput.value;
+          const socket = io(serverUrl, {
+            auth: {
+              accessToken,
+            },
+          });
+          socket.on("connect", () => {
+            console.log("connected");
+          });
+          socket.on("notification", (data) => {
+            console.log("notification", data);
+          });
+        } catch (error) {
+          console.error("Failed to fetch server configuration:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
