@@ -1,5 +1,5 @@
 import { User } from '@prisma/client';
-import { prismaClient } from '../lib/prismaClient';
+import { prismaClient } from '../lib/prismaClient.js';
 
 export async function createUser(data: Omit<User, 'id' | 'createdAt' | 'updatedAt'>) {
   const createdUser = await prismaClient.user.create({

@@ -5,7 +5,7 @@ import { CursorPaginationParams } from "../types/pagination.js";
 import { Notification } from "../types/notification.js";
 import * as notificationsRepository from "../repositories/notificationsRepository.js";
 import * as usersRepository from "../repositories/usersRepository.js";
-import socketService from "./socketService.js";
+import socketService from "./socket-service.js";
 
 export async function createNotification(
   data: Omit<Notification, "id" | "read" | "createdAt" | "updatedAt">,

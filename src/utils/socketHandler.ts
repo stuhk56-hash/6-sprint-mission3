@@ -1,5 +1,4 @@
 import { Server, Socket } from "socket.io";
-import { ExtendedError } from "socket.io/dist/error";
 import { authenticate } from "../services/user-service.js";
 import User from "../types/User.js";
 
@@ -11,7 +10,7 @@ declare module "socket.io" {
 
 const socketAuthMiddleware = async (
   socket: Socket,
-  next: (err?: ExtendedError) => void,
+  next: (err?: Error) => void,
 ) => {
   const token = socket.handshake.auth.token || socket.handshake.headers.authorization?.split(" ")[1];
 
