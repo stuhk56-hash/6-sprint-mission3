@@ -29,5 +29,5 @@ services:
       - .env
 
 volumes:
-  pgdata:
+  data:
   uploads:
