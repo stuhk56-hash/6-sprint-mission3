@@ -1,0 +1,39 @@
+{
+"compilerOptions": {
+/_ === 📂 파일 구조 === _/
+"rootDir": "./src",
+"outDir": "./dist",
+
+    /* === ⚙️ 실행 환경 설정 === */
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+
+    /* === 🧩 타입 관련 옵션 === */
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "types": ["node", "jest"],
+
+    /* === 🏗️ 빌드 성능 & 개발 편의 === */
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.cache/.tsbuildinfo",
+
+    /* ===  📝 빌드 Output 설정 === */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* ===  📜 엄격한 타입 검사 옵션 === */
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": false
+
+},
+"include": ["src/**/*.ts"],
+"exclude": ["prisma", "node_modules", "dist", "src/__tests__"]
+}
