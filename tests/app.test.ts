@@ -1,5 +1,5 @@
 import request from "supertest";
-import prisma from "../src/lib/prisma";
+import prisma from "../src/lib/prisma-client";
 import app from "../src/app";
 
 describe("중고거래 플랫폼 API 통합 테스트", () => {

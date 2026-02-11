@@ -96,7 +96,7 @@ POST http://localhost:3000/products/1/favorites
 DELETE http://localhost:3000/products/1/favorites
 
 
-### Product에 Comment 달기 테스트
+### Product에 Comment 테스트
 POST http://localhost:3000/products/1/comments
 Content-Type: application/json
 
