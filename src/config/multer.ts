@@ -2,7 +2,7 @@
 import multer from 'multer';
 import path from 'path';
 import crypto from 'crypto';
-import fs, { mkdirSync } from 'fs';
+import fs from 'fs';
 import type { Request } from 'express';
 
 // 파일 업로드 하기위해 필요한 검증이 뭘까?
@@ -50,7 +50,7 @@ const uploadDir = path.join(process.cwd(), 'public', 'uploads');
 });
 
 // 5) 허용 MIME 타입 필터링
-  const fileFilter = ( req: Request, file: Express.Multer.File, cb: multer.FileFilterCallback ) => { 
+  const fileFilter = ( _req: Request, file: Express.Multer.File, cb: multer.FileFilterCallback ) => { 
     const validType = [ 'image/jpg', 'image/png', 'image/jpeg' ].includes(file.mimetype);
     if(validType) {
         cb(null, true);

@@ -20,7 +20,7 @@ async function createPost(req: Request, res: Response) {
   res.status(201).json(post);
 }
 
-async function getPosts(req: Request, res: Response) {
+async function getPosts(_req: Request, res: Response) {
   const posts = await (prisma as any).post.findMany();
   res.json(posts);
 }
@@ -46,7 +46,7 @@ async function updatePost(req: Request, res: Response) {
     data: { content },
   });
 
-  res.json(updatedPost);
+  return res.json(updatedPost);
 }
 
 async function deletePost(req: Request, res: Response) {
@@ -68,7 +68,7 @@ async function deletePost(req: Request, res: Response) {
     where: { id: Number(id) },
   });
 
-  res.status(204).send();
+  return res.status(204).send();
 }
 
 export default router;

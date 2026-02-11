@@ -15,7 +15,7 @@ router.post(
     // 정적 파일 경로 생성 (예: /static/uploads/filename.jpg)
     const imageUrl = `${STATIC_PATH}/uploads/${req.file.filename}`;
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "File uploaded successfully",
       imageUrl,
     });

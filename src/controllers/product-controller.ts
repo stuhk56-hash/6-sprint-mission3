@@ -2,8 +2,8 @@ import { withAsync } from "../lib/withAsync.js";
 import { prisma } from "../lib/prisma-client.js";
 import { Prisma } from "@prisma/client";
 import { ApiError } from "../lib/errors/ApiError.js";
-import { Request, Response } from "express";
-import { AuthRequest } from "../middlewares/authenticate.js";
+import type { Request, Response } from "express";
+import type { AuthRequest } from "../middlewares/authenticate.js";
 import {
   DEFAULT_PAGE,
   DEFAULT_LIMIT,
@@ -17,8 +17,8 @@ import {
  */
 export const getAllProducts = withAsync(async (req: Request, res: Response) => {
   // 쿼리 파라미터에서 page, limit, sort, search 추출 및 기본값 적용 (상수 사용)
-  const page = parseInt(req.query.page as string) || DEFAULT_PAGE;
-  const limit = parseInt(req.query.limit as string) || DEFAULT_LIMIT;
+  const page = parseInt(req.query['page'] as string) || DEFAULT_PAGE;
+  const limit = parseInt(req.query['limit'] as string) || DEFAULT_LIMIT;
   const { sort, search } = req.query;
 
   // Offset 계산

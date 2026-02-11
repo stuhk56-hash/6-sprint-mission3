@@ -1,6 +1,6 @@
-import { Product } from '@prisma/client';
+import type { Product, Prisma, ProductLike } from '@prisma/client';
 import prisma from '../lib/prisma-client.js';
-import { PagePaginationParams } from '../types/pagination.js';
+import type { PagePaginationParams } from '../types/pagination.js';
 
 export async function createProduct(data: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>) {
   return prisma.product.create({
@@ -29,7 +29,7 @@ export async function getProductWithFavorites(id: number, userId?: number) {
     productLike: undefined,
     favoriteCount: product.productLike.length,
     isFavorited: userId
-      ? product.productLike.some((like) => like.userId === userId)
+      ? product.productLike.some((like: ProductLike) => like.userId === userId)
       : undefined,
   };
   return mappedProduct;
@@ -43,7 +43,7 @@ export async function getProductListWithFavorites(
     userId?: number;
   } = {},
 ) {
-  const where = keyword
+  const where: Prisma.ProductWhereInput = keyword
     ? {
         OR: [{ name: { contains: keyword } }, { description: { contains: keyword } }],
       }
@@ -69,7 +69,7 @@ export async function getProductListWithFavorites(
     favoriteCount: product.productLike.length,
     isFavorited:
       userId !== undefined
-        ? product.productLike.some((like) => like.userId === userId)
+        ? product.productLike.some((like: ProductLike) => like.userId === userId)
         : undefined,
   }));
 
@@ -83,7 +83,7 @@ export async function getFavoriteProductListByOwnerId(
   ownerId: number,
   { page, pageSize, orderBy, keyword }: PagePaginationParams,
 ) {
-  const where = keyword
+  const where: Prisma.ProductWhereInput = keyword
     ? {
         OR: [{ name: { contains: keyword } }, { description: { contains: keyword } }],
       }

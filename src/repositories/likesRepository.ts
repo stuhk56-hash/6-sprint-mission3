@@ -1,7 +1,7 @@
-import { ArticleLike } from '@prisma/client';
+import type { ArticleLike } from '@prisma/client';
 import prisma from '../lib/prisma-client.js';
 
-export async function createLike(data: Omit<ArticleLike, 'id' | 'createdAt' | 'updatedAt'>) {
+export async function createLike(data: Omit<ArticleLike, 'id'>) {
   const createdLike = await prisma.articleLike.create({
     data,
   });

@@ -1,6 +1,6 @@
 // uploadController
 
-import { Request, Response } from 'express'
+import type { Request, Response } from 'express'
 
 export const imageUpload = (req: Request, res: Response) => {
   if (!req.file) { 

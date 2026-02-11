@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 
 const JWT_ACCESS_TOKEN_SECRET =
-  process.env.JWT_ACCESS_TOKEN_SECRET || "access-secret";
+  process.env['JWT_ACCESS_TOKEN_SECRET'] || "access-secret";
 const JWT_REFRESH_TOKEN_SECRET =
-  process.env.JWT_REFRESH_TOKEN_SECRET || "refresh-secret";
+  process.env['JWT_REFRESH_TOKEN_SECRET'] || "refresh-secret";
 
 export function generateTokens(userId: number) {
   const accessToken = jwt.sign({ id: userId }, JWT_ACCESS_TOKEN_SECRET, {
@@ -20,7 +20,7 @@ export function verifyAccessToken(token: string) {
   if (typeof decoded === "string") {
     throw new Error("Invalid token");
   }
-  return { userId: decoded.id };
+  return { userId: decoded['id'] };
 }
 
 export function verifyRefreshToken(token: string) {
@@ -28,5 +28,5 @@ export function verifyRefreshToken(token: string) {
   if (typeof decoded === "string") {
     throw new Error("Invalid token");
   }
-  return { userId: decoded.id };
+  return { userId: decoded['id'] };
 }

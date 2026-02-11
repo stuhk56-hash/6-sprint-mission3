@@ -1,18 +1,25 @@
+import type { Prisma } from '@prisma/client';
 import prisma from '../lib/prisma-client.js';
-import { Notification } from '../types/notification.js';
-import { CursorPaginationParams } from '../types/pagination.js';
+import type { Notification } from '../types/notification.js';
+import type { CursorPaginationParams } from '../types/pagination.js';
 
 export async function getNotificationsByUserId(userId: number, params: CursorPaginationParams) {
   const { cursor, limit } = params;
   const where = {
     userId,
   };
-  const notificationsWithCursor = await prisma.notification.findMany({
-    cursor: cursor ? { id: cursor } : undefined,
+
+  const queryArgs: Prisma.NotificationFindManyArgs = {
     take: limit + 1,
     where,
     orderBy: [{ createdAt: 'desc' }, { id: 'asc' }],
-  });
+  };
+
+  if (cursor) {
+    queryArgs.cursor = { id: cursor };
+  }
+
+  const notificationsWithCursor = await prisma.notification.findMany(queryArgs);
   const totalCount = await prisma.notification.count({ where });
   const unreadCount = await prisma.notification.count({ where: { ...where, read: false } });
   const notifications = notificationsWithCursor.slice(0, limit);

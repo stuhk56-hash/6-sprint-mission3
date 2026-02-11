@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { withAsync } from "../lib/withAsync.js";
 import * as commentService from "../services/comment-service.js";
-import { AuthRequest } from "../middlewares/authenticate.js";
+import type { AuthRequest } from "../middlewares/authenticate.js";
 
 const DEFAULT_LIMIT = 10;
 
@@ -9,7 +9,7 @@ const DEFAULT_LIMIT = 10;
 
 export const handleCreateArticleComment = withAsync(
   async (req: AuthRequest, res: Response) => {
-    const { id: articleId } = req.params;
+    const articleId = Number(req.params['id']);
     const { content } = req.body;
     const userId = req.user!.id; // authenticate 미들웨어가 보장
 
@@ -24,9 +24,9 @@ export const handleCreateArticleComment = withAsync(
 
 export const handleGetArticleComments = withAsync(
   async (req: Request, res: Response) => {
-    const { id: articleId } = req.params;
-    const cursor = req.query.cursor ? Number(req.query.cursor) : undefined;
-    const limit = req.query.limit ? Number(req.query.limit) : DEFAULT_LIMIT;
+    const articleId = Number(req.params['id']);
+    const cursor = req.query['cursor'] ? Number(req.query['cursor']) : undefined;
+    const limit = req.query['limit'] ? Number(req.query['limit']) : DEFAULT_LIMIT;
 
     const { comments, nextCursor } = await commentService.getArticleComments(
       Number(articleId),
@@ -46,7 +46,7 @@ export const handleGetArticleComments = withAsync(
 
 export const handleUpdateArticleComment = withAsync(
   async (req: AuthRequest, res: Response) => {
-    const { id: commentId } = req.params;
+    const commentId = Number(req.params['id']);
     const { content } = req.body;
     const userId = req.user!.id;
 
@@ -61,7 +61,7 @@ export const handleUpdateArticleComment = withAsync(
 
 export const handleDeleteArticleComment = withAsync(
   async (req: AuthRequest, res: Response) => {
-    const { id: commentId } = req.params;
+    const commentId = Number(req.params['id']);
     const userId = req.user!.id;
 
     await commentService.deleteArticleComment(Number(commentId), userId);
@@ -73,7 +73,7 @@ export const handleDeleteArticleComment = withAsync(
 
 export const handleCreateProductComment = withAsync(
   async (req: AuthRequest, res: Response) => {
-    const { id: productId } = req.params;
+    const productId = Number(req.params['id']);
     const { content } = req.body;
     const userId = req.user!.id;
 
@@ -88,9 +88,9 @@ export const handleCreateProductComment = withAsync(
 
 export const handleGetProductComments = withAsync(
   async (req: Request, res: Response) => {
-    const { id: productId } = req.params;
-    const cursor = req.query.cursor ? Number(req.query.cursor) : undefined;
-    const limit = req.query.limit ? Number(req.query.limit) : DEFAULT_LIMIT;
+    const productId = Number(req.params['id']);
+    const cursor = req.query['cursor'] ? Number(req.query['cursor']) : undefined;
+    const limit = req.query['limit'] ? Number(req.query['limit']) : DEFAULT_LIMIT;
 
     const { comments, nextCursor } = await commentService.getProductComments(
       Number(productId),
@@ -110,7 +110,7 @@ export const handleGetProductComments = withAsync(
 
 export const handleUpdateProductComment = withAsync(
   async (req: AuthRequest, res: Response) => {
-    const { id: commentId } = req.params;
+    const commentId = Number(req.params['id']);
     const { content } = req.body;
     const userId = req.user!.id;
 
@@ -125,7 +125,7 @@ export const handleUpdateProductComment = withAsync(
 
 export const handleDeleteProductComment = withAsync(
   async (req: AuthRequest, res: Response) => {
-    const { id: commentId } = req.params;
+    const commentId = Number(req.params['id']);
     const userId = req.user!.id;
 
     await commentService.deleteProductComment(Number(commentId), userId);

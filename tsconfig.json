@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    // File Layout
+    //=== 📂 파일 구조 ===
     "rootDir": "./src",
     "outDir": "./dist",
 
-    // Environment Settings
+    /* === ⚙️ 실행 환경 설정 === */
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
 
     // For nodejs:
     "lib": ["esnext"],
-    "types": ["node"],
+    "types": ["node", "jest"],
     // and npm install -D @types/node
 
-    // Other Outputs
+    /* ===  📝 빌드 Output 설정 === */
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
 
-    // Stricter Typechecking Options
+    /* ===  📜 엄격한 타입 검사 옵션 === */
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
@@ -31,13 +31,13 @@
     "noFallthroughCasesInSwitch": true,
     "noPropertyAccessFromIndexSignature": true,
 
-    // Recommended Options
+    /* === 🧩 타입 관련 옵션 === */
     "strict": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  }
+  },
+  "exclude": ["node_modules", "tests", "jest.config.cjs", "src/__tests__", "dist"]
 }

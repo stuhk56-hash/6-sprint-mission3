@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { create, object, coerce, number, string } from "superstruct";
 import * as notificationService from "../services/notification-service.js";
-import { AuthRequest } from "../middlewares/authenticate.js";
+import type { AuthRequest } from "../middlewares/authenticate.js";
 
 const IdParamsStruct = object({
   id: coerce(number(), string(), (value) => parseInt(value, 10)),

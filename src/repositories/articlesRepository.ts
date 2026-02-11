@@ -1,6 +1,6 @@
-import { Article } from '@prisma/client';
+import type { Article, Prisma, ArticleLike } from '@prisma/client';
 import prisma from '../lib/prisma-client.js';
-import { PagePaginationParams } from '../types/pagination.js';
+import type { PagePaginationParams } from '../types/pagination.js';
 
 export async function createArticle(data: Omit<Article, 'id' | 'createdAt' | 'updatedAt'>) {
   const createdArticle = await prisma.article.create({
@@ -30,7 +30,7 @@ export async function getArticleWithLkes(id: number, { userId }: { userId?: numb
     ...article,
     articleLike: undefined,
     likeCount: article.articleLike.length,
-    isLiked: userId ? article.articleLike.some((like) => like.userId === userId) : undefined,
+    isLiked: userId ? article.articleLike.some((like: ArticleLike) => like.userId === userId) : undefined,
   };
 }
 
@@ -42,9 +42,10 @@ export async function getArticleListWithLikes(
     userId?: number;
   } = {},
 ) {
-  const where = {
-    title: keyword ? { contains: keyword } : undefined,
-  };
+  const where: Prisma.ArticleWhereInput = {};
+  if (keyword) {
+    where.title = { contains: keyword };
+  }
 
   const totalCount = await prisma.article.count({ where });
   const articles = await prisma.article.findMany({
@@ -61,7 +62,7 @@ export async function getArticleListWithLikes(
     ...article,
     articleLike: undefined,
     likeCount: article.articleLike.length,
-    isLiked: userId ? article.articleLike.some((like) => like.userId === userId) : undefined,
+    isLiked: userId ? article.articleLike.some((like: ArticleLike) => like.userId === userId) : undefined,
   }));
 
   return {

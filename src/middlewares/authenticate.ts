@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 import { verifyAccessToken } from "../utils/token.js";
 import prisma from "../lib/prisma-client.js";
 import { ACCESS_TOKEN_COOKIE_NAME } from "../constants/index.js";
@@ -12,7 +12,7 @@ export interface AuthRequest extends Omit<Request, "user"> {
 }
 
 export default function authenticate() {
-  return async (req: Request, res: Response, next: NextFunction) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
     const accessToken = req.cookies[ACCESS_TOKEN_COOKIE_NAME];
 
     if (!accessToken) {
@@ -25,8 +25,8 @@ export default function authenticate() {
         where: { id: payload.userId },
       });
       if (!user) return res.status(401).json({ message: "User not found" });
-      (req as AuthRequest).user = user;
-      next();
+      req.user = user;
+      return next();
     } catch (error) {
       return res.status(401).json({ message: "Invalid token" });
     }

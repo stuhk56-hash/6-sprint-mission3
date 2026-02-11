@@ -61,7 +61,7 @@ export const getArticleComments = async (
     },
     take: limit,
     skip,
-    cursor: cursorOptions,
+    ...(cursorOptions && { cursor: cursorOptions }),
     orderBy: {
       id: "desc",
     },

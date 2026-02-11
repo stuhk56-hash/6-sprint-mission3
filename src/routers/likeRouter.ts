@@ -1,11 +1,11 @@
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
 import prisma from "../lib/prisma-client.js";
 
 const router = express.Router();
 
 // 좋아요 추가
 router.post("/:postId/like", async (req: Request, res: Response) => {
-  const postId = Number(req.params.postId);
+  const postId = Number(req.params['postId']);
   const { userId } = req.body; // Assuming userId is sent in the request body
 
   try {

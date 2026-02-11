@@ -1,7 +1,7 @@
-import { ProductLike } from '@prisma/client';
+import type { ProductLike } from '@prisma/client';
 import prisma from '../lib/prisma-client.js';
 
-export async function createFavorite(data: Omit<ProductLike, 'id' | 'createdAt' | 'updatedAt'>) {
+export async function createFavorite(data: Omit<ProductLike, 'id'>) {
   const createdFavorite = await prisma.productLike.create({
     data,
   });
